@@ -16,6 +16,7 @@ AllCops:
     - node_modules/**/*
     - spec/rails_helper.rb
     - test/**/*
+    - vendor/bundle/**/*
 
 Metrics/BlockLength:
   Enabled: false
