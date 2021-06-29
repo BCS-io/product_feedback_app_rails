@@ -28,6 +28,10 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# lograge changes Rails' logging to a more
+# traditional one-line-per-event format
+gem 'lograge'
+
 group :development, :test do
   # Way of generating boilerplate code for common gems
   gem 'boring_generators'
