@@ -28,15 +28,17 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-# Way of generating boilerplate code from common gems
-gem 'boring_generators'
-
 group :development, :test do
+  # Way of generating boilerplate code for common gems
+  gem 'boring_generators'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # All runtime config comes from the UNIX environment but we
+  # use dotenv to store that in files for development and testing
+  gem 'dotenv-rails'
   # factory replacement for fixtures
   gem 'factory_bot_rails'
-  # generating random test dta
+  # generating random test data
   gem 'faker'
   # test framework
   gem 'rspec-rails', '~> 5.0.0'
