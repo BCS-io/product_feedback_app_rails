@@ -35,6 +35,11 @@ gem 'lograge'
 group :development, :test do
   # Way of generating boilerplate code for common gems
   gem 'boring_generators'
+  # bundler-audit enables bundle audit which analyzes our
+  # dependencies for known vulnerabilities
+  gem 'bundler-audit'
+  # Brakeman analyzes our code for security vulnerabilities
+  gem 'brakeman'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # All runtime config comes from the UNIX environment but we
