@@ -70,7 +70,11 @@ GEM
       msgpack (~> 1.0)
     boring_generators (0.11.0)
       railties
+    brakeman (5.0.4)
     builder (3.2.4)
+    bundler-audit (0.8.0)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 1.0)
     byebug (11.1.3)
     capybara (3.35.3)
       addressable
@@ -297,6 +301,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   boring_generators
+  brakeman
+  bundler-audit
   byebug
   capybara (>= 3.26)
   dotenv-rails
