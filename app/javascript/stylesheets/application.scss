@@ -1,3 +1,22 @@
+:root {
+  --color-purple-100: hsl(282, 90%, 66%);
+  --color-purple-200: hsl(282, 83%, 52%);
+  --color-indigo-50: hsl(230, 100%, 91%);
+  --color-indigo-100: hsl(230, 91%, 73%);
+  --color-indigo-200: hsl(230, 76%, 59%);
+  --color-indigo-300: hsl(230, 31%, 31%);
+  --color-indigo-400: hsl(231, 33%, 34%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-gray-100: hsl(230, 60%, 98%);
+  --color-gray-200: hsl(231, 100%, 97%);
+  --color-gray-250: hsl(231, 19%, 73%);
+  --color-gray-300: hsl(224, 20%, 49%);
+  --color-red-50: hsl(14, 83%, 90%);
+  --color-red-100: hsl(14, 83%, 74%);
+  --color-red-200: hsl(0, 67%, 53%);
+  --color-blue-100: hsl(204, 94%, 68%);
+}
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";

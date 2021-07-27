@@ -1,5 +1,5 @@
-const colors = require('tailwindcss/colors')
-const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   purge: [],
@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Jost', defaultTheme.fontFamily.sans]
-      }
+        sans: ['Jost', defaultTheme.fontFamily.sans],
+      },
     },
     screens: {
       sm: '640px',
@@ -23,14 +23,34 @@ module.exports = {
       current: 'currentColor',
 
       black: colors.black,
-      white: colors.white,
-      gray: colors.coolGray,
-      red: colors.red,
+      white: 'var(--color-white)',
+      gray: {
+        100: 'var(--color-gray-100)',
+        200: 'var(--color-gray-200)',
+        250: 'var(--color-gray-250)',
+        300: 'var(--color-gray-300)',
+      },
+      red: {
+        50: 'var(--color-red-50)',
+        100: 'var(--color-red-100)',
+        200: 'var(--color-red-200)',
+      },
       yellow: colors.amber,
       green: colors.emerald,
-      blue: colors.blue,
-      indigo: colors.indigo,
-      purple: colors.violet,
+      blue: {
+        100: 'var(--color-blue-100)',
+      },
+      indigo: {
+        50: 'var(--color-indigo-50)',
+        100: 'var(--color-indigo-100)',
+        200: 'var(--color-indigo-200)',
+        300: 'var(--color-indigo-300)',
+        400: 'var(--color-indigo-400)',
+      },
+      purple: {
+        100: 'var(--color-purple-100)',
+        200: 'var(--color-purple-200)',
+      },
       pink: colors.pink,
     },
     spacing: {
@@ -54,6 +74,7 @@ module.exports = {
       12: '3rem',
       14: '3.5rem',
       16: '4rem',
+      18: '4.5rem',
       20: '5rem',
       24: '6rem',
       28: '7rem',
@@ -90,13 +111,17 @@ module.exports = {
     backgroundImage: {
       none: 'none',
       'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
-      'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
+      'gradient-to-tr':
+        'linear-gradient(to top right, var(--tw-gradient-stops))',
       'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
-      'gradient-to-br': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
+      'gradient-to-br':
+        'linear-gradient(to bottom right, var(--tw-gradient-stops))',
       'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
-      'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
+      'gradient-to-bl':
+        'linear-gradient(to bottom left, var(--tw-gradient-stops))',
       'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
-      'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
+      'gradient-to-tl':
+        'linear-gradient(to top left, var(--tw-gradient-stops))',
     },
     backgroundOpacity: (theme) => theme('opacity'),
     backgroundPosition: {
@@ -164,7 +189,8 @@ module.exports = {
     },
     boxShadow: {
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-      DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+      DEFAULT:
+        '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
       md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
       lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
@@ -201,7 +227,10 @@ module.exports = {
     divideWidth: (theme) => theme('borderWidth'),
     dropShadow: {
       sm: '0 1px 1px rgba(0,0,0,0.05)',
-      DEFAULT: ['0 1px 2px rgba(0, 0, 0, 0.1)', '0 1px 1px rgba(0, 0, 0, 0.06)'],
+      DEFAULT: [
+        '0 1px 2px rgba(0, 0, 0, 0.1)',
+        '0 1px 1px rgba(0, 0, 0, 0.06)',
+      ],
       md: ['0 4px 3px rgba(0, 0, 0, 0.07)', '0 2px 2px rgba(0, 0, 0, 0.06)'],
       lg: ['0 10px 8px rgba(0, 0, 0, 0.04)', '0 4px 3px rgba(0, 0, 0, 0.1)'],
       xl: ['0 20px 13px rgba(0, 0, 0, 0.03)', '0 8px 5px rgba(0, 0, 0, 0.08)'],
@@ -261,7 +290,14 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
-      serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      serif: [
+        'ui-serif',
+        'Georgia',
+        'Cambria',
+        '"Times New Roman"',
+        'Times',
+        'serif',
+      ],
       mono: [
         'ui-monospace',
         'SFMono-Regular',
@@ -274,19 +310,13 @@ module.exports = {
       ],
     },
     fontSize: {
-      xs: ['0.75rem', { lineHeight: '1rem' }],
-      sm: ['0.875rem', { lineHeight: '1.25rem' }],
-      base: ['1rem', { lineHeight: '1.5rem' }],
-      lg: ['1.125rem', { lineHeight: '1.75rem' }],
-      xl: ['1.25rem', { lineHeight: '1.75rem' }],
-      '2xl': ['1.5rem', { lineHeight: '2rem' }],
-      '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
-      '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-      '5xl': ['3rem', { lineHeight: '1' }],
-      '6xl': ['3.75rem', { lineHeight: '1' }],
-      '7xl': ['4.5rem', { lineHeight: '1' }],
-      '8xl': ['6rem', { lineHeight: '1' }],
-      '9xl': ['8rem', { lineHeight: '1' }],
+      xs: ['13px', { lineHeight: '19px' }],
+      sm: ['14px', { lineHeight: '20px', letterSpacing: '0.2' }],
+      base: ['15px', { lineHeight: '22px' }],
+      lg: ['16px', { lineHeight: '23px' }],
+      xl: ['18px', { lineHeight: '26px', letterSpacing: '-0.25' }],
+      '2xl': ['20px', { lineHeight: '29px', letterSpacing: '-0.25' }],
+      '3xl': ['24px', { lineHeight: '35px', letterSpacing: '-0.33' }],
     },
     fontWeight: {
       thin: '100',
@@ -525,6 +555,7 @@ module.exports = {
     maxWidth: (theme, { breakpoints }) => ({
       none: 'none',
       0: '0rem',
+      '2xs': '16rem',
       xs: '20rem',
       sm: '24rem',
       md: '28rem',
@@ -848,17 +879,45 @@ module.exports = {
     backgroundAttachment: ['responsive'],
     backgroundBlendMode: ['responsive'],
     backgroundClip: ['responsive'],
-    backgroundColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    backgroundColor: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
     backgroundImage: ['responsive'],
-    backgroundOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    backgroundOpacity: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
     backgroundPosition: ['responsive'],
     backgroundRepeat: ['responsive'],
     backgroundSize: ['responsive'],
     backgroundOrigin: ['responsive'],
     blur: ['responsive'],
     borderCollapse: ['responsive'],
-    borderColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
-    borderOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    borderColor: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
+    borderOpacity: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
     borderRadius: ['responsive'],
     borderStyle: ['responsive'],
     borderWidth: ['responsive'],
@@ -876,7 +935,7 @@ module.exports = {
     divideStyle: ['responsive'],
     divideWidth: ['responsive'],
     dropShadow: ['responsive'],
-    fill: ['responsive'],
+    fill: ['responsive', 'hover'],
     filter: ['responsive'],
     flex: ['responsive'],
     flexDirection: ['responsive'],
@@ -953,9 +1012,29 @@ module.exports = {
     strokeWidth: ['responsive'],
     tableLayout: ['responsive'],
     textAlign: ['responsive'],
-    textColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
-    textDecoration: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-    textOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    textColor: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
+    textDecoration: [
+      'responsive',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
+    textOpacity: [
+      'responsive',
+      'dark',
+      'group-hover',
+      'focus-within',
+      'hover',
+      'focus',
+    ],
     textOverflow: ['responsive'],
     textTransform: ['responsive'],
     transform: ['responsive'],
@@ -973,5 +1052,5 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [require('@tailwindcss/forms'),],
-}
+  plugins: [require('@tailwindcss/forms')],
+};
