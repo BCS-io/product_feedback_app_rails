@@ -46,3 +46,29 @@ yarn-debug.log*
 # .env.*local files are where we put actual secrets we need for
 # dev and test, so we really don't want this in version control
 .env.*.local
+
+
+#
+# Frontendmentor have some files they would not like you added to the project
+#
+
+# Avoid accidental upload of the Sketch and Figma design files
+#####################################################
+## Please do not remove lines 5 and 6 - thanks! 🙂 ##
+#####################################################
+*.sketch
+*.fig
+
+# Avoid accidental XD upload if you convert the design file
+###############################################
+## Please do not remove line 12 - thanks! 🙂 ##
+###############################################
+*.xd
+
+# Avoid your project being littered with annoying .DS_Store files!
+.DS_Store
+.prettierignore
+
+#
+# End Frontendmentor
+#
