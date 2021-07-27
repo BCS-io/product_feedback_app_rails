@@ -1,10 +1,16 @@
 const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   purge: [],
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Jost', defaultTheme.fontFamily.sans]
+      }
+    },
     screens: {
       sm: '640px',
       md: '768px',
