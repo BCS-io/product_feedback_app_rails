@@ -21,6 +21,10 @@ AllCops:
 Metrics/BlockLength:
   Enabled: false
 
+Metrics/MethodLength:
+  Exclude:
+    - app/controllers/design_system_docs_controller.rb
+
 RSpec/ExampleLength:
   Enabled: false
 

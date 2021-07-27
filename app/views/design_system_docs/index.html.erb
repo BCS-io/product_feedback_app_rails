@@ -1,0 +1,53 @@
+<section class="m-4">
+  <h1 class="text-2xl">DesignSystemDocs</h1>
+
+  <nav class="mt-6 text-3xl space-y-2">
+    <a href="#typography" class="text-blue-500">Typography</a> |
+    <a href="#colors" class="text-blue-500">Colors</a> |
+    <a href="https://tailwindcss.com/docs/" class="text-blue-500">Tailwindcss Docs</a>
+  </nav>
+
+  <a name="typography">
+  <h2 class="text-3xl mt-8">Typography</h2>
+  <% @design_system_docs.typography.each do |type, details| %>
+    <h2 class="text-2xl mt-6"><%= type %></h2>
+      <div class="my-4 w-11/12 h-32 px-4 py-2 text-black">
+        <p class="font-<%= details[:weight] %> text-<%= details[:size] %> mb-2">
+          Lorem, ipsum dolor sit amet consectetur adipisicing
+        </p>
+
+        <code><pre>
+  &lt;<%= details[:element] %> class="font-<%= details[:weight] %> text-<%= details[:size] %>"&gt;
+    <%= type %>
+  &lt;/<%= details[:element] %>&gt;
+        </pre></code>
+      </div>
+
+  <% end %>
+
+  <a name="colors">
+  <h2 class="text-3xl mt-8">Colors</h2>
+  <% @design_system_docs.colors.each do |name, css_classes|%>
+    <h2 class="text-xl mt-4"><%= name.to_s.titleize %></h2>
+    <% css_classes.each do |css_class| %>
+      <div class="my-4 w-11/12 h-32 px-4 py-2 bg-<%= css_class %> text-black">
+        <p class="mb-2"><%= css_class %> background</p>
+        <code><pre>
+  &lt;div class="bg-<%= css_class %>"&gt;
+    <%= name %> background
+  &lt;/div&gt;
+        </pre></code>
+      </div>
+      <div class="my-4 w-11/12 h-32 px-4 py-2
+                  border-2 border-<%= css_class %>
+                  text-<%= css_class %> bg-white">
+        <p class="mb-2 text-black"><%= css_class %> text and border</p>
+        <code><pre>
+  &lt;div class="text-<%= css_class %> border-<%= css_class %>"&gt;
+    <%= name %> border and text
+  &lt;/div&gt;
+        </pre></code>
+      </div>
+    <% end %>
+  <% end %>
+</section>
