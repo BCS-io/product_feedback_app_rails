@@ -18,6 +18,10 @@ AllCops:
     - test/**/*
     - vendor/bundle/**/*
 
+Lint/MissingSuper:
+  Exclude:
+    - app/components/*_component.rb # not seen view_components call super
+
 Metrics/BlockLength:
   Enabled: false
 
