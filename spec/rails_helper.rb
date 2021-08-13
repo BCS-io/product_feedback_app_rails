@@ -78,4 +78,7 @@ RSpec.configure do |config|
       driven_by :selenium_chrome_headless
     end
   end
+
+  config.include ViewComponent::TestHelpers, type: :component
+  config.include Capybara::RSpecMatchers, type: :component
 end

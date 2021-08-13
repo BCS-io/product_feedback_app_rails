@@ -34,6 +34,8 @@ gem 'lograge'
 
 gem 'devise'
 
+gem "view_component", require: "view_component/engine"
+
 group :development, :test do
   # Way of generating boilerplate code for common gems
   gem 'boring_generators'
