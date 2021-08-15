@@ -15,4 +15,8 @@ RSpec.describe User, type: :model do
       expect(user.full_name).to eq "John Smith"
     end
   end
+
+  it "has roles" do
+    expect(User.new).to define_enum_for(:role)
+  end
 end
