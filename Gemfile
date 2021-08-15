@@ -81,6 +81,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
+  gem 'pundit-matchers', '~> 1.7.0'
   gem 'selenium-webdriver'
   # test one-liners
   gem 'shoulda-matchers', '~> 4.0'
