@@ -11,5 +11,13 @@ FactoryBot.define do
                            filename: "image-anne.jpg", content_type: "image/jpeg")
       end
     end
+
+    factory :customer do
+      role { "customer" }
+    end
+
+    factory :staff do
+      role { "staff" }
+    end
   end
 end
