@@ -15,6 +15,9 @@
   </head>
 
   <body class="bg-gray-100">
+    <% flash.each do |type, message| %>
+      <%= render(NotificationComponent.new(type: type, message: message)) %>
+    <% end %>
     <div class="flex flex-col sm:mx-4 sm:mt-4 md:mt-6 lg:max-w-5xl lg:mx-auto  lg:flex-row lg:gap-8">
       <nav class="flex gap-2 lg:gap-6 lg:flex-col lg:max-w-2xs">
         <div class="flex-1 lg:flex-initial flex px-4 py-4 lg:h-32 justify-between items-center  text-white bg-gradient-to-tr from-indigo-200 via-purple-100 via-purple-200 to-red-200 sm:rounded-lg">
@@ -178,9 +181,6 @@
         </div>
       </div>
     </div>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
