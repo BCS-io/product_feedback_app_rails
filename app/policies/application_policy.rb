@@ -53,7 +53,7 @@ class ApplicationPolicy
 
   protected
 
-  def owner?
+  def record_owner?
     return false if user.nil?
 
     user == record.user
