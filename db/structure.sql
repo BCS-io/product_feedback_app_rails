@@ -9,6 +9,31 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+--
+-- Name: feedback_category; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.feedback_category AS ENUM (
+    'enhancement',
+    'feature',
+    'bug',
+    'ui',
+    'ux'
+);
+
+
+--
+-- Name: feedback_status; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.feedback_status AS ENUM (
+    'suggestion',
+    'planned',
+    'in_progress',
+    'live'
+);
+
+
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
@@ -125,6 +150,42 @@ CREATE TABLE public.ar_internal_metadata (
 
 
 --
+-- Name: feedbacks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.feedbacks (
+    id bigint NOT NULL,
+    title text NOT NULL,
+    upvotes integer DEFAULT 0 NOT NULL,
+    description text NOT NULL,
+    user_id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    category public.feedback_category,
+    status public.feedback_status
+);
+
+
+--
+-- Name: feedbacks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.feedbacks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: feedbacks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.feedbacks_id_seq OWNED BY public.feedbacks.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -192,6 +253,13 @@ ALTER TABLE ONLY public.active_storage_variant_records ALTER COLUMN id SET DEFAU
 
 
 --
+-- Name: feedbacks id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.feedbacks ALTER COLUMN id SET DEFAULT nextval('public.feedbacks_id_seq'::regclass);
+
+
+--
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -228,6 +296,14 @@ ALTER TABLE ONLY public.active_storage_variant_records
 
 ALTER TABLE ONLY public.ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: feedbacks feedbacks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.feedbacks
+    ADD CONSTRAINT feedbacks_pkey PRIMARY KEY (id);
 
 
 --
@@ -275,6 +351,27 @@ CREATE UNIQUE INDEX index_active_storage_variant_records_uniqueness ON public.ac
 
 
 --
+-- Name: index_feedbacks_on_category; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_feedbacks_on_category ON public.feedbacks USING btree (category);
+
+
+--
+-- Name: index_feedbacks_on_status; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_feedbacks_on_status ON public.feedbacks USING btree (status);
+
+
+--
+-- Name: index_feedbacks_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_feedbacks_on_user_id ON public.feedbacks USING btree (user_id);
+
+
+--
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -312,6 +409,14 @@ ALTER TABLE ONLY public.active_storage_attachments
 
 
 --
+-- Name: feedbacks fk_rails_c57bb6cf28; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.feedbacks
+    ADD CONSTRAINT fk_rails_c57bb6cf28 FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -321,6 +426,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210812115613'),
 ('20210812115848'),
 ('20210812120315'),
-('20210815104541');
+('20210815104541'),
+('20210815111257');
 
 

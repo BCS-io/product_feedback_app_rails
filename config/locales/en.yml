@@ -1,2 +1,16 @@
-#
 en:
+  activerecord:
+    attributes:
+      feedback:
+        statuses:
+          suggestion: "Suggestion"
+          planned: "Planned"
+          in_progress: "In-Progress"
+          live: "Live"
+        categories:
+          enhancement: "Enhancement"
+          feature: "Feature"
+          bug: "Bug"
+          ui: "UI"
+          ux: "UX"
+
