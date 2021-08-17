@@ -65,23 +65,13 @@
             <a class="text-indigo-200 underline">view</a>
           </div>
           <ul class="mt-6 flex flex-col list-none  text-gray-300 text-left leading-8">
-            <li class="flex justify-between items-center">
-              <span class="h-2 w-2 rounded-full bg-red-100"></span>
-              <span class="ml-4 flex-1">Planned</span>
-              <span>2</span>
-            </li>
-
-            <li class="flex  justify-between items-center">
-              <span class="h-2 w-2 rounded-full bg-purple-200"></span>
-              <span class="ml-4 flex-1">In-progress</span>
-              <span>3</span>
-            </li>
-
-            <li class="flex  justify-between items-center">
-              <span class="h-2 w-2 rounded-full bg-indigo-100"></span>
-                <span class="ml-4 flex-1">Live</span>
-                <span>1</span>
-            </li>
+           <% @results.roadmap.each do |key, value| %>
+              <li class="flex justify-between items-center">
+                <span class="h-2 w-2 rounded-full <%= @results.roadmap_colors[key] %>"></span>
+                <span class="ml-4 flex-1"><%= Feedback.human_enum_name(:status, key) %></span>
+                <span><%= value %></span>
+              </li>
+            <% end %>
           </ul>
         </div>
       </nav>
@@ -152,24 +142,15 @@
                   <h2 class="text-xl font-bold">Roadmap</h2>
                   <a class="text-indigo-200 underline">view</a>
                 </div>
+
                 <ul class="mt-6 flex flex-col list-none  text-gray-300 text-left leading-8">
-                  <li class="flex justify-between items-center">
-                      <span class="h-2 w-2 rounded-full bg-red-100"></span>
-                      <span class="ml-4 flex-1">Planned</span>
-                      <span>2</span>
-                  </li>
-
-                  <li class="flex  justify-between items-center">
-                      <span class="h-2 w-2 rounded-full bg-purple-200"></span>
-                      <span class="ml-4 flex-1">In-progress</span>
-                      <span>3</span>
-                  </li>
-
-                  <li class="flex  justify-between items-center">
-                      <span class="h-2 w-2 rounded-full bg-indigo-100"></span>
-                      <span class="ml-4 flex-1">Live</span>
-                      <span>1</span>
-                  </li>
+                <% @results.roadmap.each do |key, value| %>
+                    <li class="flex justify-between items-center">
+                      <span class="h-2 w-2 rounded-full <%= @results.roadmap_colors[key] %>"></span>
+                      <span class="ml-4 flex-1"><%= Feedback.human_enum_name(:status, key) %></span>
+                      <span><%= value %></span>
+                    </li>
+                  <% end %>
                 </ul>
               </div>
             </nav>
