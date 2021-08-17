@@ -19,8 +19,101 @@
       "user_input": "RbConfig.ruby",
       "confidence": "Medium",
       "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "dede64a4283af6fcf7ec1d4d99aa45b91dc4f5d470152118646d02c2644d7d66",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/views/suggestions/index.html.erb",
+      "line": 24,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => CategoryLinksComponent.new(:category => params[:category]), {})",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "SuggestionsController",
+          "method": "index",
+          "line": 5,
+          "file": "app/controllers/suggestions_controller.rb",
+          "rendered": {
+            "name": "suggestions/index",
+            "file": "app/views/suggestions/index.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "suggestions/index"
+      },
+      "user_input": "params[:category]",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "dede64a4283af6fcf7ec1d4d99aa45b91dc4f5d470152118646d02c2644d7d66",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/views/suggestions/index.html.erb",
+      "line": 84,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => CategoryLinksComponent.new(:category => params[:category]), {})",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "SuggestionsController",
+          "method": "index",
+          "line": 5,
+          "file": "app/controllers/suggestions_controller.rb",
+          "rendered": {
+            "name": "suggestions/index",
+            "file": "app/views/suggestions/index.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "suggestions/index"
+      },
+      "user_input": "params[:category]",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "dede64a4283af6fcf7ec1d4d99aa45b91dc4f5d470152118646d02c2644d7d66",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/views/suggestions/index.html.erb",
+      "line": 86,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => CategoryLinksComponent.new(:category => params[:category]), {})",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "SuggestionsController",
+          "method": "index",
+          "line": 5,
+          "file": "app/controllers/suggestions_controller.rb",
+          "rendered": {
+            "name": "suggestions/index",
+            "file": "app/views/suggestions/index.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "suggestions/index"
+      },
+      "user_input": "params[:category]",
+      "confidence": "Weak",
+      "note": ""
     }
   ],
-  "updated": "2021-06-29 22:52:05 +0100",
+  "updated": "2021-08-19 14:39:15 +0100",
   "brakeman_version": "5.0.4"
 }
