@@ -1,8 +1,12 @@
 module Suggestions
   class SuggestionsIndex
-    def suggestions_index
+    def suggestions_index(category: nil)
       roadmap = roadmap_status_zero_count.merge(roadmap_status_count)
-      feedbacks = Feedback.where(status: "suggestion")
+      feedbacks = if category.present?
+                    Feedback.where(status: "suggestion").where(category: category)
+                  else
+                    Feedback.where(status: "suggestion")
+                  end
 
       Result.new(roadmap: roadmap, feedbacks: feedbacks)
     end

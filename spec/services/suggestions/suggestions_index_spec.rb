@@ -22,6 +22,24 @@ module Suggestions
 
         expect(result.feedbacks).to match_array([])
       end
+
+      it "returns feedback suggestions matching category" do
+        user = create(:user)
+        create_list(:feedback, 2, status: "suggestion", category: "ui", user: user)
+
+        result = SuggestionsIndex.new.suggestions_index(category: "ui")
+
+        expect(result.feedbacks.count).to eq(2)
+      end
+
+      it "returns no feedback suggestions if no matching category" do
+        user = create(:user)
+        create_list(:feedback, 1, status: "suggestion", category: "ui", user: user)
+
+        result = SuggestionsIndex.new.suggestions_index(category: "bug")
+
+        expect(result.feedbacks.count).to eq(0)
+      end
     end
 
     describe "roadmap" do
