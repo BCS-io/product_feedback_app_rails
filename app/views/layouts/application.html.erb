@@ -40,24 +40,7 @@
           </div>
         </div>
         <div class="flex-1 lg:flex-initial hidden sm:flex sm:flex-wrap items-center space-x-2 py-5 rounded-lg pl-2 text-xs bg-white">
-          <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-            All
-          </span>
-          <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-            UI
-          </span>
-          <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-            UX
-          </span>
-          <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-            Enhancement
-          </span>
-          <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-            Bug
-          </span>
-          <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-            Feature
-          </span>
+          <%= render(CategoryLinksComponent.new(category: params[:category])) %>
         </div>
         <div class="flex-1 px-6 py-2 sm:flex sm:flex-col lg:flex-initial hidden rounded-lg bg-white">
           <div class="flex justify-between">
@@ -117,25 +100,8 @@
               <div class="flex justify-end">
                 <%= render(UserLoginComponent.new(current_user: current_user, user_signed_in: user_signed_in?)) %>
               </div>
-              <div class="mt-4 flex-1 lg:flex-initial sm:flex sm:flex-wrap items-center space-x-2 x-4 py-5 rounded-lg pl-2 text-xs bg-white">
-                <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-                  All
-                </span>
-                <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-                  UI
-                </span>
-                <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-                  UX
-                </span>
-                <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-                  Enhancement
-                </span>
-                <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-                  Bug
-                </span>
-                <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium bg-gray-200 text-indigo-200">
-                  Feature
-                </span>
+              <div class="mt-4">
+                <%= render(CategoryLinksComponent.new(category: params[:category])) %>
               </div>
               <div class="mt-6 flex-1 px-6 py-2 sm:flex sm:flex-col lg:flex-initial rounded-lg bg-white">
                 <div class="flex justify-between">
