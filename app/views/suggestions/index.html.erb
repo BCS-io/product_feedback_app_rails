@@ -105,8 +105,10 @@
 
       <div class="h-screen w-full bg-gray-100">
         <% @results.feedbacks.limit(9).each do |feedback| %>
-          <%= render(FeedbackViewComponent.new(feedback: feedback)) %>
+          <%= link_to suggestion_path(feedback) do %>
+            <%= render(FeedbackViewComponent.new(feedback: feedback)) %>
           <% end %>
+        <% end %>
       </div>
     </div>
   </div>
