@@ -50,6 +50,10 @@ Style/FrozenStringLiteralComment:
 Style/RedundantSelf:
   Enabled: false
 
+Style/StringConcatenation:
+  Exclude:
+    - spec/helpers/enum_helper_spec.rb
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
