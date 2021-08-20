@@ -18,3 +18,18 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@layer base {
+  .comment-border-link {
+    display: block;
+    position: absolute;
+    top: 96px; // py-8 + h-12 + mt-4
+    left: 43px; // px-6 + h-10 / 2 - 1 (2/2 - for width of line)
+    width: 10px;
+    height: calc(100% - 96px - 32px);
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-clip: padding-box;
+  }
+}
