@@ -15,9 +15,9 @@
   --color-blue-100: hsl(204, 94%, 68%);
 }
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @layer base {
   .comment-border-link {
@@ -31,5 +31,10 @@
     border-right: 4px solid transparent;
     background-color: rgba(0, 0, 0, 0.1);
     background-clip: padding-box;
+  }
+
+  .field_with_errors {
+    padding: 2px;
+    background-color: var(--color-red-200);
   }
 }
