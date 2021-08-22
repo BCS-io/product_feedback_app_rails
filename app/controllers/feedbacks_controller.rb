@@ -15,6 +15,21 @@ class FeedbacksController < ApplicationController
     authorize @feedback
   end
 
+  def edit
+    @feedback = Feedback.find(params[:id])
+    authorize @feedback
+  end
+
+  def update
+    @feedback = Feedback.find(params[:id])
+    if @feedback.update(feedback_params)
+      redirect_to root_path, notice: "Feedback was successfully updated"
+    else
+      render :edit
+    end
+    authorize @feedback
+  end
+
   private
 
   def feedback_params

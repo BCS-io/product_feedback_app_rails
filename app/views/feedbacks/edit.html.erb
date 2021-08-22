@@ -1,0 +1,32 @@
+<nav class="flex justify-between items-center m-6">
+  <div>
+    <%= link_to root_path, class: "flex items-center" do %>
+      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.33447 9L0.334473 5L4.33447 1" stroke="#4661E6" stroke-width="2"/>
+      </svg>
+      <span class="ml-2">Go Back</span>
+    <% end %>
+  </div>
+</nav>
+<%= form_with model: @feedback, html: { class: "relative mx-auto px-6 max-w-2xl w-full  bg-white rounded-xl border" } do |form| %>
+<div class="mt-11">
+  <div class="absolute -top-5 p-3 items-center justify-center text-white bg-gradient-to-tr from-indigo-200 via-purple-100 via-purple-200 to-red-200 rounded-full">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+    </svg>
+  </div>
+  <h1 class="text-xl font-bold">Editing `<%= @feedback.title %>`</h1>
+
+  <%= render "form_inputs", form: form, feedback: @feedback %>
+
+  <div class="mt-10 mb-4 flex flex-col sm:flex-row sm:justify-end inline-block">
+    <%= form.submit "Save Changes", class:  "w-full inline-flex items-center px-4 sm:px-6 py-3 sm:w-auto sm:ml-3 sm:order-2 border border-transparent shadow-sm text-xs sm:text-sm font-bold rounded-lg text-white bg-purple-200 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500" %>
+    <%= link_to suggestion_path(@feedback), class: "mt-4 sm:mt-0 w-full sm:w-auto justify-center inline-flex items-center px-4 sm:px-6 py-3 border border-transparent shadow-sm text-xs sm:text-sm font-bold rounded-lg text-white bg-indigo-400 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-300" do %>
+      </svg>
+      <span class="font-bold">Cancel</span>
+    <% end %>
+    <%= link_to "Delete", "#", class:  "mt-4 sm:mt-0 w-full inline-flex items-center justify-center px-4 sm:px-6 py-3 sm:w-auto sm:mr-auto sm:order-first border border-transparent shadow-sm text-xs sm:text-sm font-bold rounded-lg text-white bg-red-200 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500" %>
+  </div>
+
+</div>
+<% end %>
