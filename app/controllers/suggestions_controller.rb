@@ -1,4 +1,6 @@
 class SuggestionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @results = Suggestions::SuggestionsIndex.new.suggestions_index(category: params[:category])
     authorize @results.feedbacks
