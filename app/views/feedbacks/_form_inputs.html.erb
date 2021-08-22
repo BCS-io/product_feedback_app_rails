@@ -1,0 +1,46 @@
+  <div class="mt-6 text-sm">
+    <div>
+      <%= form.label :title, "Feedback Title", class: "text-indigo-400 font-bold" %>
+      <p class="text-gray-300">Add a short, descriptive headline</p>
+    </div>
+
+    <div class="mt-4">
+      <%= form.text_field :title, class: "w-full text-indigo-400 bg-gray-100 border-none focus:border-indigo-200" %>
+      <p class='text-red-200'><%= show_errors(@feedback, :title) %></p>
+    </div>
+  </div>
+
+  <div class="mt-6">
+    <div class="text-sm">
+      <%= form.label :category, class: "text-indigo-400 font-bold" %>
+      <p class="text-gray-300">Choose a category for your feedback</p>
+    </div>
+    <div class="mt-4">
+       <%= form.select(:category, options_for_enum(@feedback, :category), {}, { class: "w-full h-12 text-indigo-400 bg-gray-100 border-none focus:border-indigo-200"}) %>
+      <p class='text-red-200'><%= show_errors(@feedback, :category) %></p>
+    </div>
+  </div>
+
+  <% if current_user.staff_role? %>
+    <div class="mt-6">
+      <div class="text-sm">
+        <%= form.label :status, class: "text-indigo-400 font-bold" %>
+        <p class="text-gray-300">Change feature state</p>
+      </div>
+      <div class="mt-4">
+        <%= form.select(:status, options_for_enum(@feedback, :status), {}, { class: "w-full h-12 text-indigo-400 bg-gray-100 border-none focus:border-indigo-200"}) %>
+        <p class='text-red-200'><%= show_errors(@feedback, :status) %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mt-6 text-sm">
+    <div>
+      <%= form.label :description, "Feedback Detail", class: "text-indigo-400 font-bold" %>
+      <p class="text-gray-300">Include any specific comments on what should be improved, added, etc.</p>
+    </div>
+    <div class="mt-4">
+      <%= form.text_area :description, class: "w-full h-32 text-indigo-400 bg-gray-100 border-none" %>
+      <p class="text-red-200"><%= show_errors(@feedback, :description) %></p>
+    </div>
+  </div>
