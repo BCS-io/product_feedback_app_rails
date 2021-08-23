@@ -42,6 +42,38 @@ module Suggestions
       end
     end
 
+    describe "ordering" do
+      it "orders by upvotes descending by default" do
+        user = create(:user)
+        create(:feedback, status: "suggestion", upvotes: 1, user: user)
+        create(:feedback, status: "suggestion", upvotes: 2, user: user)
+
+        result = SuggestionsIndex.new.suggestions_index(sort: nil)
+        expect(result.feedbacks[0].upvotes).to eq 2
+        expect(result.feedbacks[1].upvotes).to eq 1
+      end
+
+      it "orders by upvotes descending" do
+        user = create(:user)
+        create(:feedback, status: "suggestion", upvotes: 1, user: user)
+        create(:feedback, status: "suggestion", upvotes: 2, user: user)
+
+        result = SuggestionsIndex.new.suggestions_index(sort: "upvotes-desc")
+        expect(result.feedbacks[0].upvotes).to eq 2
+        expect(result.feedbacks[1].upvotes).to eq 1
+      end
+
+      it "orders by upvotes ascending" do
+        user = create(:user)
+        create(:feedback, status: "suggestion", upvotes: 2, user: user)
+        create(:feedback, status: "suggestion", upvotes: 1, user: user)
+
+        result = SuggestionsIndex.new.suggestions_index(sort: "upvotes-asc")
+        expect(result.feedbacks[0].upvotes).to eq 1
+        expect(result.feedbacks[1].upvotes).to eq 2
+      end
+    end
+
     describe "roadmap" do
       it "returns roadmap statuses by count" do
         user = create(:user)
