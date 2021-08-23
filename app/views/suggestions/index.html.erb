@@ -50,16 +50,14 @@
           <span><%= @results.feedbacks.count %> Suggestions</span>
         </div>
         <div class="flex items-center space-x-1">
-          <span>Sort by</span>
-          <p>:</p>
-          <div class="relative inline-block text-left">
-            <button type="button" class="inline-flex justify-center w-full rounded-md shadow-sm px-1 py-2 text-sm font-bold hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
-              Most Upvotes
-              <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-          </div>
+          <%= form_with url: root_path, method: :get, class: "flex items-center justify-between" do |f| %>
+            <%= f.label :column_sort, "Sort by", class: "text-gray-100" %>
+            <p class="mx-2">:</p>
+            <div class="relative text-left">
+                <%= f.select :column_sort, options_for_select([["Most Upvotes", "upvotes_count-desc" ], ["Least Upvotes", "upvotes_count-asc"], [ "Most Comments", "comments_count-desc"], [ "Least Comments", "comments_count-asc"] ], selected: params[:column_sort]), {}, {onchange: "javascript: this.form.commit.click();", class: "custom-select relative inline-flex justify-center appearance-none rounded-md shadow-sm py-2 text-sm font-bold bg-indigo-400 bg-no-repeat hover:bg-gray-50 border-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"} %>
+                <%= f.submit class: "hidden" %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="flex-shrink-0 gap-2 flex justify-between">
