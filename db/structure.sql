@@ -161,7 +161,8 @@ CREATE TABLE public.feedbacks (
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
     category public.feedback_category,
-    status public.feedback_status
+    status public.feedback_status,
+    upvotes_count integer DEFAULT 0 NOT NULL
 );
 
 
@@ -233,6 +234,38 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
+-- Name: votes; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.votes (
+    id bigint NOT NULL,
+    feedback_id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: votes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.votes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: votes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.votes_id_seq OWNED BY public.votes.id;
+
+
+--
 -- Name: active_storage_attachments id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -265,6 +298,13 @@ ALTER TABLE ONLY public.feedbacks ALTER COLUMN id SET DEFAULT nextval('public.fe
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Name: votes id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.votes ALTER COLUMN id SET DEFAULT nextval('public.votes_id_seq'::regclass);
 
 
 --
@@ -321,6 +361,14 @@ ALTER TABLE ONLY public.schema_migrations
 
 ALTER TABLE ONLY public.users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: votes votes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.votes
+    ADD CONSTRAINT votes_pkey PRIMARY KEY (id);
 
 
 --
@@ -394,6 +442,35 @@ CREATE UNIQUE INDEX index_users_on_username ON public.users USING btree (usernam
 
 
 --
+-- Name: index_votes_on_feedback_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_votes_on_feedback_id ON public.votes USING btree (feedback_id);
+
+
+--
+-- Name: index_votes_on_feedback_id_and_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_votes_on_feedback_id_and_user_id ON public.votes USING btree (feedback_id, user_id);
+
+
+--
+-- Name: index_votes_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_votes_on_user_id ON public.votes USING btree (user_id);
+
+
+--
+-- Name: votes fk_rails_77820db21f; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.votes
+    ADD CONSTRAINT fk_rails_77820db21f FOREIGN KEY (feedback_id) REFERENCES public.feedbacks(id);
+
+
+--
 -- Name: active_storage_variant_records fk_rails_993965df05; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -418,6 +495,14 @@ ALTER TABLE ONLY public.feedbacks
 
 
 --
+-- Name: votes fk_rails_c9b3bef597; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.votes
+    ADD CONSTRAINT fk_rails_c9b3bef597 FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -429,6 +514,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210812120315'),
 ('20210812140000'),
 ('20210815104541'),
-('20210815111257');
+('20210815111257'),
+('20210824181937'),
+('20210824190000');
 
 
