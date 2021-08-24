@@ -1,6 +1,6 @@
 
 <div class="flex flex-col sm:mx-4 sm:mt-4 md:mt-6 lg:max-w-5xl lg:mx-auto  lg:flex-row lg:gap-8">
-  <nav class="flex gap-2 lg:gap-6 lg:flex-col lg:max-w-2xs">
+  <nav class="test-desktop flex gap-2 lg:gap-6 lg:flex-col lg:max-w-2xs">
     <div class="flex-1 lg:flex-initial flex px-4 py-4 lg:h-32 justify-between items-center  text-white bg-gradient-to-tr from-indigo-200 via-purple-100 via-purple-200 to-red-200 sm:rounded-lg">
       <div>
         <h1 class="text-lg sm:text-2xl sm:font-bold">Frontend Mentor</h1>
@@ -51,6 +51,7 @@
         </div>
         <div class="flex items-center space-x-1">
           <%= form_with url: root_path, method: :get, class: "flex items-center justify-between" do |f| %>
+            <%= hidden_field_tag :category, params[:category] %>
             <%= f.label :column_sort, "Sort by", class: "text-gray-100" %>
             <p class="mx-2">:</p>
             <div class="relative text-left">
@@ -75,7 +76,7 @@
     <div class="w-full h-screen relative  bg-gray-100">
       <div class="sidebar w-72 p-8 absolute inset-y-0 right-0 transform translate-x-full sm:translate-x-full sm:hidden transition duration-200 ease-in-out">
         <!-- mobile nav -->
-        <nav class="flex flex-col">
+        <nav class="test-mobile flex flex-col">
           <div class="flex justify-end">
             <%= render(UserLoginComponent.new(current_user: current_user, user_signed_in: user_signed_in?)) %>
           </div>
