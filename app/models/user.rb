@@ -7,4 +7,5 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :feedbacks, dependent: :destroy
+  has_many :votes, dependent: :destroy
 end
