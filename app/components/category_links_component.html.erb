@@ -1,12 +1,12 @@
 <div class="test-category-links-component mt-4 flex-1 lg:flex-initial sm:flex sm:flex-wrap items-center space-x-2 x-4 py-5 rounded-lg pl-2 text-xs bg-white">
-  <%= link_to root_path do %>
+  <%= link_to root_path(current_page_params.except(:category))do %>
     <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium <%= @category.nil? ? " bg-indigo-200 text-white " : "bg-gray-200 text-indigo-200 " %> hover:bg-indigo-100">
       All
     </span>
   <% end %>
 
   <% Feedback.categories.each do |key, value| %>
-    <%= link_to root_path(category: key) do %>
+    <%= link_to root_path(current_page_params.merge(category: key)) do %>
       <span class="inline-flex items-center px-4 py-1 mb-2 rounded-lg font-medium <%= @category == key ? " bg-indigo-200 text-white " : "bg-gray-200 text-indigo-200 " %>  hover:bg-indigo-100">
         <%= Feedback.human_enum_name(:category, key) %>
       </span>
