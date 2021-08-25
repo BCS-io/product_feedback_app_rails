@@ -148,6 +148,8 @@
         </div> <!-- replies end - comment 2 -->
       </div> <!-- comment end -->
 
+      <%= render(NewCommentComponent.new(commentable: @feedback)) %>
+
       <div class="mt-6 rounded-xl">
         <div class="mt-6 sm:col-span-6">
           <label for="about" class="block text-xl font-bold">
