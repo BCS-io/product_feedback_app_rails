@@ -38,6 +38,8 @@ gem "view_component", require: "view_component/engine"
 
 gem 'pundit'
 
+gem "stimulus-rails", "~> 0.3.9"
+
 group :development, :test do
   # Way of generating boilerplate code for common gems
   gem 'boring_generators'
