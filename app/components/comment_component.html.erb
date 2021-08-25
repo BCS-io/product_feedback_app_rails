@@ -1,0 +1,44 @@
+<div id="comment-1" class="relative">  <!-- my-5 mx-auto -->
+  <% if !@comment.parent_id %>
+    <%= link_to "#comment-#{@comment.id}", class: "comment-border-link" do %>
+      <span class="sr-only">Jump to comment-<%= @comment.id %></span>
+    <% end %>
+  <% end %>
+  <div>
+    <!-- heading starts -->
+    <div class="flex"> <!-- comment-heading items-center h-12 (50px)   -->
+      <%= image_tag(@comment.user.avatar, class: "inline-block h-10 w-10 rounded-full") %>
+
+      <div class="ml-4 flex-1">  <!-- comment-voting ( -flex )  -->
+        <h4 class="text-xs font-bold">Eijah Moss</h4>
+        <p class="text-xs text-gray-300">@<%= @comment.user.username %></p>
+      </div>
+
+      <div class="">
+        <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
+      </div>
+    </div>
+    <!-- heading ends -->
+    <!-- body starts -->
+    <p class="<%= @comment.parent_id ? "test-no-indentation" : "ml-12" %> mt-4 text-gray-300">
+      <%= @comment.content %>
+    <p>
+    <!-- body ends -->
+
+    <!-- Reply Form Start -->
+    <div class="ml-12 mt-8">
+      <%= render(NewCommentComponent.new(commentable: @comment.commentable, parent_id: @comment.id, klass: "hidden")) %>
+    </div>
+  </div>
+  <!-- Reply Form End -->
+
+  <!-- replies start -->
+  <div class="ml-12 mt-8">
+    <%= render(CommentComponent.with_collection(@comment.comments)) %>
+  </div>
+  <!-- replies end -->
+</div> <!-- comment end -->
+
+<% if !@iteration.last? %>
+  <hr>
+<% end %>
