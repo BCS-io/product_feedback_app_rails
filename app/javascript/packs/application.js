@@ -15,3 +15,5 @@ ActiveStorage.start()
 require('packs/menu');
 
 import "stylesheets/application"
+
+import "controllers"
