@@ -22,6 +22,10 @@ Lint/MissingSuper:
   Exclude:
     - app/components/*_component.rb # not seen view_components call super
 
+Lint/UselessAssignment:
+  Exclude:
+    - spec/components/comment_component_spec.rb
+
 Metrics/BlockLength:
   Enabled: false
 

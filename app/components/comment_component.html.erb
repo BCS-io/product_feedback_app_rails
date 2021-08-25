@@ -1,0 +1,48 @@
+<div id="comment-1" class="relative">  <!-- my-5 mx-auto -->
+  <% if orphan? %>
+    <%= link_to "#comment-#{@comment.id}", class: "comment-border-link" do %>
+      <span class="sr-only">Jump to comment-<%= @comment.id %></span>
+    <% end %>
+  <% end %>
+  <div>
+    <!-- heading starts -->
+    <div class="flex"> <!-- comment-heading items-center h-12 (50px)   -->
+      <%= image_tag(@comment.user.avatar, class: "inline-block h-10 w-10 rounded-full") %>
+
+      <div class="ml-4 flex-1">  <!-- comment-voting ( -flex )  -->
+        <h4 class="text-xs font-bold"><%= @comment.user.full_name %></h4>
+        <p class="text-xs text-gray-300">@<%= @comment.user.username %></p>
+      </div>
+
+      <div class="">
+        <%# Max nesting: <%= @max_nesting %> %>
+        <%# Nesting: <%= @nesting %> %>
+        <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
+      </div>
+    </div>
+    <!-- heading ends -->
+    <!-- body starts -->
+    <p class="<%= orphan? ?  "ml-12" : "test-no-indentation"%> mt-4 text-gray-300 <%= debug_nesting_level %>">
+      <%= sanitize "<span class='text-purple-200'>@#{@comment&.parent.user.username}</span>" if @comment&.parent %> <%= @comment.content %>
+    <p>
+    <!-- body ends -->
+
+    <!-- Reply Form Start -->
+    <div class="<%= orphan? ? "ml-12 test-new-comment-indentation" : "test-no-new-comment-indentation" %> mt-8 <%= debug_nesting_level %>"> <!-- margin ONLY on first reply **** -->
+      <%= render(NewCommentComponent.new(commentable: @comment.commentable,
+                                         parent_id: comment_reply_id,
+                                         klass: "hidden")) %>
+    </div>
+  </div>
+  <!-- Reply Form End -->
+
+  <!-- replies start -->
+  <div class="<%= orphan? ? "ml-12" : "" %> mt-8 <%= debug_nesting_level(offset: 1) %>"> <!-- only if orphan -->
+    <%= render(CommentComponent.with_collection(@comment.comments, max_nesting: @max_nesting, nesting: @nesting + 1)) %>
+  </div>
+  <!-- replies end -->
+</div> <!-- comment end -->
+
+<% if !@iteration.last? %>
+  <hr>
+<% end %>
