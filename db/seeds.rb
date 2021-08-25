@@ -31,3 +31,9 @@ end
     vote.save!
   end
 end
+
+1.upto(30).each do |item|
+  user = User.all.sample
+  feedback = Feedback.all.sample
+  FactoryBot.create(:comment, commentable: feedback, user: user)
+end
