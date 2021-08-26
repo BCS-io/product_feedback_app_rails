@@ -4,7 +4,7 @@
       <span class="sr-only">Jump to comment-<%= @comment.id %></span>
     <% end %>
   <% end %>
-  <div>
+  <div data-controller="reply">
     <!-- heading starts -->
     <div class="flex"> <!-- comment-heading items-center h-12 (50px)   -->
       <%= image_tag(@comment.user.avatar, class: "inline-block h-10 w-10 rounded-full") %>
@@ -15,9 +15,7 @@
       </div>
 
       <div class="">
-        <%# Max nesting: <%= @max_nesting %> %>
-        <%# Nesting: <%= @nesting %> %>
-        <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
+        <%= link_to "Reply", "#", class: "text-xs text-indigo-200", data: { action: "click->reply#toggle" } %>
       </div>
     </div>
     <!-- heading ends -->
@@ -31,10 +29,11 @@
     <div class="<%= orphan? ? "ml-12 test-new-comment-indentation" : "test-no-new-comment-indentation" %> mt-8 <%= debug_nesting_level %>"> <!-- margin ONLY on first reply **** -->
       <%= render(NewCommentComponent.new(commentable: @comment.commentable,
                                          parent_id: comment_reply_id,
-                                         klass: "hidden")) %>
+                                         klass: "hidden",
+                                         reply_target: "form")) %>
     </div>
+    <!-- Reply Form End -->
   </div>
-  <!-- Reply Form End -->
 
   <!-- replies start -->
   <div class="<%= orphan? ? "ml-12" : "" %> mt-8 <%= debug_nesting_level(offset: 1) %>"> <!-- only if orphan -->
