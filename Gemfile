@@ -40,6 +40,8 @@ gem 'pundit'
 
 gem "stimulus-rails", "~> 0.3.9"
 
+gem "aws-sdk-s3", require: false
+
 group :development, :test do
   # Way of generating boilerplate code for common gems
   gem 'boring_generators'
