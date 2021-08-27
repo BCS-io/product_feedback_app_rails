@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
   root "suggestions#index"
 
-  resources :feedbacks, only: [:new]
+  resources :feedbacks, only: [:new, :create]
   resources :suggestions, only: [:show]
 
   if Rails.env.development?
