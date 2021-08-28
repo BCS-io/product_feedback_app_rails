@@ -1,5 +1,5 @@
 class SuggestionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @results = Suggestions::SuggestionsIndex.new.suggestions_index(category: params[:category])
