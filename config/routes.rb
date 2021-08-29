@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :comments, module: :feedbacks, only: [:create]
   end
   resources :suggestions, only: [:show]
+  resources :votes, only: [:create, :destroy]
 
   if Rails.env.development?
     resources :design_system_docs, only: [:index]

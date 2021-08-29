@@ -37,3 +37,7 @@ end
   feedback = Feedback.all.sample
   FactoryBot.create(:comment, commentable: feedback, user: user)
 end
+
+1.upto(2).each do |index|
+  FactoryBot.create(:customer, username: "not_voted#{index}")
+end

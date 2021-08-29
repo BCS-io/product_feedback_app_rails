@@ -104,7 +104,7 @@
 
       <div class="h-screen w-full bg-gray-100">
         <% @results.feedbacks.limit(9).each do |feedback| %>
-          <%= render(FeedbackViewComponent.new(feedback: feedback)) %>
+          <%= render(FeedbackViewComponent.new(feedback: feedback, current_user: current_user)) %>
         <% end %>
       </div>
     </div>

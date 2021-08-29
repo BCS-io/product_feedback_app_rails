@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class FeedbackViewComponent < ViewComponent::Base
-  def initialize(feedback:)
+  def initialize(feedback:, current_user:)
     @feedback = feedback
+    @current_user = current_user
   end
 end

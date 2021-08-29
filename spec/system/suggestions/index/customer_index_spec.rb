@@ -25,6 +25,24 @@ module Suggestions
 
         expect(page).to have_text "Signed out successfully."
       end
+
+      it "can vote", js: true do
+        customer = create(:customer)
+        feedback = create(:feedback, status: "suggestion", user: create(:staff))
+        create(:vote, feedback: feedback, user: create(:staff))
+        visit root_path
+        sign_in customer
+
+        within ".test-feedback-view-component" do
+          click_on "1"
+
+          expect(page).to have_text "2"
+
+          click_on "2"
+
+          expect(page).to have_text "1"
+        end
+      end
     end
   end
 end
