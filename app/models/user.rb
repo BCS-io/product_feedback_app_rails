@@ -16,6 +16,14 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def voted?(feedback_id:)
+    self.votes.where(feedback_id: feedback_id).any?
+  end
+
+  def vote(feedback_id:)
+    self.votes.find_by(feedback_id: feedback_id)
+  end
+
   attr_writer :login
 
   def login

@@ -19,4 +19,38 @@ RSpec.describe User, type: :model do
   it "has roles" do
     expect(User.new).to define_enum_for(:role)
   end
+
+  describe "#voted?()" do
+    it "returns true when voted" do
+      user = create(:user)
+      feedback = create(:feedback, user: user)
+      create(:vote, user: user, feedback: feedback)
+
+      expect(user.voted?(feedback_id: feedback.id)).to be true
+    end
+
+    it "returns false when not voted" do
+      user = create(:user)
+      feedback = create(:feedback, user: user)
+
+      expect(user.voted?(feedback_id: feedback.id)).to be false
+    end
+  end
+
+  describe "#voted" do
+    it "returns vote when available" do
+      user = create(:user)
+      feedback = create(:feedback, user: user)
+      vote = create(:vote, user: user, feedback: feedback)
+
+      expect(user.vote(feedback_id: feedback.id)).to eq vote
+    end
+
+    it "returns noting when not available" do
+      user = create(:user)
+      feedback = create(:feedback, user: user)
+
+      expect(user.vote(feedback_id: feedback.id)).to eq nil
+    end
+  end
 end
