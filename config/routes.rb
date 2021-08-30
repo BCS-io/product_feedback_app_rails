@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     #
     resources :comments, module: :feedbacks, only: [:create]
   end
+  resources :roadmaps, only: [:index]
   resources :suggestions, only: [:show]
   resources :votes, only: [:create, :destroy]
 

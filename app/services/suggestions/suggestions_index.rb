@@ -23,9 +23,7 @@ module Suggestions
     private
 
     def roadmap_status_count
-      Feedback.where(status: "planned")
-              .or(Feedback.where(status: "in_progress"))
-              .or(Feedback.where(status: "live"))
+      Feedback.where(status: %w[planned in_progress live])
               .group(:status)
               .count
     end

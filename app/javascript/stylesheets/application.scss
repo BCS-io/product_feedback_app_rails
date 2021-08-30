@@ -44,4 +44,14 @@
     padding: 2px;
     background-color: var(--color-red-200);
   }
+
+  .roadmap-tabs > li.active.planned-tab {
+    border-bottom: 4px solid var(--color-red-100);
+  }
+  .roadmap-tabs > li.active.in-progress-tab {
+    border-bottom: 4px solid var(--color-purple-200);
+  }
+  .roadmap-tabs > li.active.live-tab {
+    border-bottom: 4px solid var(--color-blue-100);
+  }
 }

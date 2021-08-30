@@ -26,7 +26,7 @@
     <div class="flex-1 px-6 py-2 sm:flex sm:flex-col lg:flex-initial hidden rounded-lg bg-white">
       <div class="flex justify-between">
         <h2 class="text-xl font-bold">Roadmap</h2>
-        <a class="text-indigo-200 underline">view</a>
+        <%= link_to "view", roadmaps_path, class: "text-indigo-200 underline" %>
       </div>
       <ul class="mt-6 flex flex-col list-none  text-gray-300 text-left leading-8">
         <% @results.roadmap.each do |key, value| %>
