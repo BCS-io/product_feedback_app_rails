@@ -42,15 +42,5 @@ module Suggestions
         expect(result.roadmap).to eq({ "planned" => 0, "in_progress" => 0, "live" => 0 })
       end
     end
-
-    describe "roadmap_colors" do
-      it "has expected colors" do
-        result = SuggestionsIndex.new.suggestions_index
-
-        expect(result.roadmap_colors["planned"]).to eq("bg-red-100")
-        expect(result.roadmap_colors["in_progress"]).to eq("bg-purple-200")
-        expect(result.roadmap_colors["live"]).to eq("bg-indigo-100")
-      end
-    end
   end
 end

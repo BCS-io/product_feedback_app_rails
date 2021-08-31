@@ -67,7 +67,7 @@
           <ul class="mt-6 flex flex-col list-none  text-gray-300 text-left leading-8">
            <% @results.roadmap.each do |key, value| %>
               <li class="flex justify-between items-center">
-                <span class="h-2 w-2 rounded-full <%= @results.roadmap_colors[key] %>"></span>
+                <span class="h-2 w-2 rounded-full <%= status_to_bg_colors[key] %>"></span>
                 <span class="ml-4 flex-1"><%= Feedback.human_enum_name(:status, key) %></span>
                 <span><%= value %></span>
               </li>
@@ -146,7 +146,7 @@
                 <ul class="mt-6 flex flex-col list-none  text-gray-300 text-left leading-8">
                 <% @results.roadmap.each do |key, value| %>
                     <li class="flex justify-between items-center">
-                      <span class="h-2 w-2 rounded-full <%= @results.roadmap_colors[key] %>"></span>
+                      <span class="h-2 w-2 rounded-full <%= status_to_bg_colors[key] %>"></span>
                       <span class="ml-4 flex-1"><%= Feedback.human_enum_name(:status, key) %></span>
                       <span><%= value %></span>
                     </li>
