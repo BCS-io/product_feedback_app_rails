@@ -6,7 +6,7 @@ module Suggestions
       it "visits home page" do
         visit root_path
 
-        expect(page).to have_selector("h1", text: "Suggestions")
+        expect(page).to have_selector("h1", text: "Frontend Mentor")
       end
 
       it "signs into and out of app" do
