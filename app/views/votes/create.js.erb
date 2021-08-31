@@ -1,1 +1,1 @@
-document.getElementById("feedback-<%= @vote.feedback.id %>").innerHTML = "<%= j render 'votes/vote', feedback: @vote.feedback %>";
+document.getElementById("feedback-<%= @vote.feedback.id %>").innerHTML = "<%= j render 'votes/vote', feedback: @vote.feedback, break_point: @break_point %>";
