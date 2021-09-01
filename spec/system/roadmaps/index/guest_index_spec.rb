@@ -27,6 +27,16 @@ module Roadmaps
         expect(page).to have_selector("h2", text: "Sign in to your account")
       end
 
+      it "can visit the show page" do
+        create(:feedback, status: "live", title: "Visit the show page", user: create(:staff))
+        visit roadmaps_path
+
+        click_on "Visit the show page"
+
+        expect(page).to have_selector("span", text: "Edit Feedback")
+        expect(page).to have_selector("h3", text: "Visit the show page")
+      end
+
       it "redirects to sign in if click on vote", js: true do
         skip "Vote is an Ajax request which devise requires some setup to work"
         feedback = create(:feedback, status: "live", user: create(:staff))
