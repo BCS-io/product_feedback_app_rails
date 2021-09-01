@@ -41,7 +41,7 @@
   </nav>
 
   <div class="flex-1 mt-0 sm:mt-8 lg:mt-0">
-    <div class="flex justify-between text-gray-100 bg-indigo-300 px-4 py-2 hidden sm:flex">
+    <nav class="flex justify-between text-gray-100 bg-indigo-300 px-4 py-2 sm:flex">
       <div class="flex sm:space-x-8">
         <div class="items-center space-x-2 hidden md:flex">
           <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,42 +71,12 @@
         <% end %>
         <%= render(UserLoginComponent.new(current_user: current_user, user_signed_in: user_signed_in?)) %>
       </div>
-    </div>
+    </nav>
 
     <div class="w-full h-screen relative  bg-gray-100">
-      <div class="sidebar w-72 p-8 absolute inset-y-0 right-0 transform translate-x-full sm:translate-x-full sm:hidden transition duration-200 ease-in-out">
-        <!-- mobile nav -->
-        <nav class="test-mobile flex flex-col">
-          <div class="flex justify-end">
-            <%= render(UserLoginComponent.new(current_user: current_user, user_signed_in: user_signed_in?)) %>
-          </div>
-          <div class="mt-4">
-            <%= render(CategoryLinksComponent.new(category: params[:category])) %>
-          </div>
-          <div class="mt-6 flex-1 px-6 py-2 sm:flex sm:flex-col lg:flex-initial rounded-lg bg-white">
-            <div class="flex justify-between">
-              <h2 class="text-xl font-bold">Roadmap</h2>
-              <a class="text-indigo-200 underline">view</a>
-            </div>
-
-            <ul class="mt-6 flex flex-col list-none  text-gray-300 text-left leading-8">
-            <% @results.roadmap.each do |key, value| %>
-                <li class="flex justify-between items-center">
-                  <span class="h-2 w-2 rounded-full <%= status_to_bg_color[key] %>"></span>
-                  <span class="ml-4 flex-1"><%= Feedback.human_enum_name(:status, key) %></span>
-                  <span><%= value %></span>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </nav>
-      </div>
-
-      <div class="h-screen w-full bg-gray-100">
-        <% @results.feedbacks.limit(9).each do |feedback| %>
-          <%= render(FeedbackViewComponent.new(feedback: feedback, current_user: current_user)) %>
-        <% end %>
-      </div>
+      <% @results.feedbacks.limit(9).each do |feedback| %>
+        <%= render(FeedbackViewComponent.new(feedback: feedback, current_user: current_user)) %>
+      <% end %>
     </div>
   </div>
 </div>
