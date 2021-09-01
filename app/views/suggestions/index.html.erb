@@ -1,5 +1,13 @@
-
-<div class="flex flex-col sm:mx-4 sm:mt-4 md:mt-6 lg:max-w-5xl lg:mx-auto  lg:flex-row lg:gap-8">
+<div data-controller="slideover"
+  data-slideover-open-value="false"
+  data-slideover-invisible-class="translate-x-full,opacity-0"
+  data-slideover-visible-class="-translate-x-0,opacity-100"
+  data-slideover-entering-class=""
+  data-slideover-enter-timeout="300,300"
+  data-slideover-leaving-class=""
+  data-slideover-leave-timeout="300,0"
+  data-slideover-active-target="#slideover-target"
+  class="flex flex-col sm:mx-4 sm:mt-4 md:mt-6 lg:max-w-5xl lg:mx-auto  lg:flex-row lg:gap-8">
   <nav class="test-desktop flex gap-2 lg:gap-6 lg:flex-col lg:max-w-2xs">
     <div class="flex-1 lg:flex-initial flex px-4 py-4 lg:h-32 justify-between items-center  text-white bg-gradient-to-tr from-indigo-200 via-purple-100 via-purple-200 to-red-200 sm:rounded-lg">
       <div>
@@ -8,7 +16,7 @@
       </div>
 
       <div>
-        <button id="hamburger" class="mobile-menu-button sm:hidden">
+        <button id="hamburger" data-action="click->slideover#toggle click@window->slideover#hide" class="mobile-menu-button sm:hidden">
           <svg class="toggle block h-6 w-6" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="20" height="3" fill="white"/>
             <rect y="7" width="20" height="3" fill="white"/>
@@ -79,4 +87,5 @@
       <% end %>
     </div>
   </div>
+  <%= render "suggestions/sidebar_mobile" %>
 </div>
