@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
   root "suggestions#index"
 
-  resources :feedbacks, only: [:new, :create, :edit, :update, :destroy] do
+  resources :feedbacks, only: [:show, :new, :create, :edit, :update, :destroy] do
     #
     # module is to make different commentable objects (feedback in this case)
     # go to different controllers
@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resources :comments, module: :feedbacks, only: [:create]
   end
   resources :roadmaps, only: [:index]
-  resources :suggestions, only: [:show]
   resources :votes, only: [:create, :destroy]
 
   if Rails.env.development?

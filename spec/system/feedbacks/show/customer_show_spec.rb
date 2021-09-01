@@ -1,9 +1,9 @@
 require "rails_helper"
 
-module Suggestions
+module Feedbacks
   module Show
     RSpec.describe "CustomerShow", type: :system do
-      it "can vote", js: true do
+      it "can vote" do
         customer = create(:customer)
         feedback = create(:feedback,
                           status: "suggestion",

@@ -1,6 +1,13 @@
 class FeedbacksController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[show]
+
   def new
     @feedback = Feedback.new
+    authorize @feedback
+  end
+
+  def show
+    @feedback = Feedback.find(params[:id])
     authorize @feedback
   end
 

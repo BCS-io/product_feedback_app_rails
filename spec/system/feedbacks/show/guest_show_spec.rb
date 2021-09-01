@@ -1,9 +1,9 @@
 require "rails_helper"
 
-module Suggestions
+module Feedbacks
   module Show
     RSpec.describe "GuestShow", type: :system, js: true do
-      it "visits suggestions page" do
+      it "visits show page" do
         create(:feedback, status: "suggestion", user: create(:staff), title: "Joy")
         visit root_path
 

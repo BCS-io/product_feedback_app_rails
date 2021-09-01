@@ -5,7 +5,7 @@ module Feedbacks
     protected
 
     def return_path
-      suggestion_path(@commentable)
+      feedback_path(@commentable)
     end
 
     private

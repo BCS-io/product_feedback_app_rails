@@ -21,7 +21,7 @@
 
   <div class="mt-10 mb-4 flex flex-col sm:flex-row sm:justify-end inline-block">
     <%= form.submit "Save Changes", class:  "w-full inline-flex items-center px-4 sm:px-6 py-3 sm:w-auto sm:ml-3 sm:order-2 border border-transparent shadow-sm text-xs sm:text-sm font-bold rounded-lg text-white bg-purple-200 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500" %>
-    <%= link_to suggestion_path(@feedback), class: "mt-4 sm:mt-0 w-full sm:w-auto justify-center inline-flex items-center px-4 sm:px-6 py-3 border border-transparent shadow-sm text-xs sm:text-sm font-bold rounded-lg text-white bg-indigo-400 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-300" do %>
+    <%= link_to feedback_path(@feedback), class: "mt-4 sm:mt-0 w-full sm:w-auto justify-center inline-flex items-center px-4 sm:px-6 py-3 border border-transparent shadow-sm text-xs sm:text-sm font-bold rounded-lg text-white bg-indigo-400 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-300" do %>
       </svg>
       <span class="font-bold">Cancel</span>
     <% end %>
