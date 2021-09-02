@@ -3,7 +3,7 @@ require "rails_helper"
 module Feedbacks
   module Show
     RSpec.describe "GuestShow", type: :system, js: true do
-      it "visits show page" do
+      it "return back from show page to suggestions" do
         create(:feedback, status: "suggestion", user: create(:staff), title: "Joy")
         visit root_path
 
@@ -11,6 +11,26 @@ module Feedbacks
 
         expect(page).to have_selector("span", text: "Edit Feedback")
         expect(page).to have_selector("h3", text: "Joy")
+
+        click_on "Go Back"
+
+        expect(page).to have_selector("h1", text: "Frontend Mentor")
+      end
+
+      it "return back from show page to roadmaps", js: true do
+        create(:feedback, status: "live",
+                          user: create(:staff),
+                          title: "Koi")
+        visit roadmaps_path
+
+        click_on "Koi"
+
+        expect(page).to have_selector("span", text: "Edit Feedback")
+        expect(page).to have_selector("h3", text: "Koi")
+
+        click_on "Go Back"
+
+        expect(page).to have_selector("h1", text: "Roadmap")
       end
 
       it "is redirected via sign in when voting" do

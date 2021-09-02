@@ -3,16 +3,12 @@ require "rails_helper"
 module Roadmaps
   module Index
     RSpec.describe "GuestIndex", type: :system do
-      it "visits roadmap page" do
+      it "return visits roadmap page" do
         visit root_path
 
         click_link "view"
 
         expect(page).to have_selector("h1", text: "Roadmap")
-      end
-
-      it "can return to homepage", js: true do
-        visit roadmaps_path
 
         click_link "Go Back"
 

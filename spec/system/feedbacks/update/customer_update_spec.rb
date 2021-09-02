@@ -3,6 +3,21 @@ require "rails_helper"
 module Feedbacks
   module Update
     RSpec.describe "CustomerUpdate", type: :system do
+      it "return visit when clicking back", js: true do
+        customer = create(:customer)
+        feedback = create(:feedback, title: "Offer dark version",
+                                     status: "suggestion",
+                                     user: customer)
+        sign_in customer
+        visit feedback_path(feedback)
+
+        click_link "Edit Feedback"
+
+        click_link "Go Back"
+
+        expect(page).to have_link nil, text: "Edit Feedback"
+      end
+
       it "updates feedback" do
         customer = create(:customer)
         create(:feedback, title: "Offer dark version",
@@ -46,7 +61,7 @@ module Feedbacks
 
         click_link "Cancel"
 
-        expect(page).to have_text "Edit Feedback"
+        expect(page).to have_link nil, text: "Edit Feedback"
         expect(page).to have_selector "h3", text: "Offer dark version"
       end
 
