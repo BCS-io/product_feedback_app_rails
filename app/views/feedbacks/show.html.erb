@@ -20,7 +20,9 @@
 
     <div class="mt-6 px-6 py-8"> <!-- comments wrapper -->
 
-      <%= render(CommentComponent.with_collection(@feedback.comments.where(parent_id: nil), max_nesting: 1)) %>
+      <div class="test-show-comments">
+        <%= render(CommentComponent.with_collection(@feedback.comments.where(parent_id: nil), max_nesting: 1)) %>
+      </div>
 
       <div class="hidden">
         <!-- comment begin -->
@@ -153,7 +155,9 @@
         </div> <!-- comment end -->
       </div> <!-- wrapper around static comments -->
 
-      <%= render(NewCommentComponent.new(commentable: @feedback)) %>
+      <div class="test-new-comment">
+        <%= render(NewCommentComponent.new(commentable: @feedback)) %>
+      <div>
 
     </div> <!-- comments wrapper -->
   </div>

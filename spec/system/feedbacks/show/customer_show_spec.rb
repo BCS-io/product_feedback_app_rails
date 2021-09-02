@@ -25,6 +25,40 @@ module Feedbacks
           expect(page).to have_text "1"
         end
       end
+
+      it "can comment", js: true do
+        customer = create(:customer, :avatared)
+        feedback = create(:feedback, title: "Visit the show page", user: create(:staff))
+        sign_in customer
+        visit feedback_path(feedback)
+
+        within ".test-new-comment" do
+          fill_in "Add Comment", with: "Hello world"
+          click_on "Post Comment"
+        end
+
+        within ".test-show-comments" do
+          expect(page).to have_text "Hello world"
+        end
+      end
+
+      it "reply to comment", js: true do
+        customer = create(:customer, :avatared)
+        feedback = create(:feedback, user: create(:staff))
+        create(:comment, content: "first message",
+                         user: customer,
+                         commentable: feedback)
+        sign_in customer
+        visit feedback_path(feedback)
+
+        within ".test-show-comments" do
+          click_on "Reply"
+          fill_in "Add Comment", with: "second message"
+          click_on "Post Comment"
+
+          expect(page).to have_text "second message"
+        end
+      end
     end
   end
 end

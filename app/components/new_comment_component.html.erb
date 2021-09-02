@@ -1,8 +1,6 @@
 <%= form_with model: [@commentable, Comment.new], html: { class: "#{@klass} mt-6 rounded-xl", data: { "reply-target": @reply_target } } do |form|  %>
   <div class="mt-6 sm:col-span-6">
-    <label for="about" class="block text-xl font-bold">
-      Add Comment
-    </label>
+    <%= form.label :content, "Add Comment", class: "block text-xl font-bold" %>
     <div class="mt-1">
       <%= form.text_area :content, rows: "4", class: "shadow-sm text-indigo-400 border-none focus:ring-indigo-200 focus:border-indigo-200 block w-full sm:text-base bg-gray-100 rounded-md", placeholder: "Type your comment here" %>
     </div>
