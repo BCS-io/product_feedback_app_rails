@@ -13,7 +13,7 @@
 </nav>
 
 <div class="mt-10 relative mx-auto px-6 max-w-3xl w-full  bg-white rounded-xl border">
-  <%= render(FeedbackViewComponent.new(feedback: @feedback, current_user: current_user)) %>
+  <%= render(FeedbackViewComponent.new(feedback: @feedback, current_user: current_user, text_limit: false)) %>
 
   <div class="mt-20 mx-6 mb-6 bg-white rounded-xl">
     <h3 class="pt-6 ml-6 text-xl font-bold"><span><%= @feedback.comments_count %></span> Comments</h3>
