@@ -7,9 +7,10 @@
   data-slideover-leaving-class=""
   data-slideover-leave-timeout="300,0"
   data-slideover-active-target="#slideover-target"
-  class="flex flex-col sm:mx-4 sm:mt-4 md:mt-6 lg:max-w-5xl lg:mx-auto  lg:flex-row lg:gap-8">
-  <nav class="test-desktop flex gap-2 lg:gap-6 lg:flex-col lg:max-w-2xs">
-    <div class="flex-1 lg:flex-initial flex px-4 py-4 lg:h-32 justify-between items-center  text-white bg-gradient-to-tr from-indigo-200 via-purple-100 via-purple-200 to-red-200 sm:rounded-lg">
+  class="flex flex-col sm:mx-4 lg:mx-auto sm:mt-4 md:mt-6 lg:flex-row lg:max-w-6xl lg:gap-7">
+
+  <nav class="test-desktop flex lg:ml-4 lg:flex-col lg:max-w-2xs gap-2 lg:gap-6">
+    <div class="flex-1 lg:flex-initial flex px-4 py-4 lg:h-32 justify-between items-center text-white bg-gradient-to-tr from-indigo-200 via-purple-100 via-purple-200 to-red-200 sm:rounded-lg">
       <div>
         <h1 class="text-lg sm:text-2xl sm:font-bold">Frontend Mentor</h1>
         <h2 class="text-xs sm:text-lg">Feedback Board</h2>
@@ -34,7 +35,7 @@
     <div class="flex-1 px-6 py-2 sm:flex sm:flex-col lg:flex-initial hidden rounded-lg bg-white">
       <div class="flex justify-between">
         <h2 class="text-xl font-bold">Roadmap</h2>
-        <%= link_to "view", roadmaps_path, class: "text-indigo-200 underline" %>
+        <%= link_to "view", roadmaps_path, class: "ml-14 text-indigo-200 underline" %>
       </div>
       <ul class="mt-6 flex flex-col list-none  text-gray-300 text-left leading-8">
         <% @results.roadmap.each do |key, value| %>
@@ -48,8 +49,9 @@
     </div>
   </nav>
 
-  <div class="flex-1 mt-0 sm:mt-8 lg:mt-0">
-    <nav class="flex justify-between text-gray-100 bg-indigo-300 px-4 py-2 sm:flex">
+  <div class="flex-1  mt-0 sm:mt-8 lg:mt-0 overflow-hidden">
+
+    <nav class="flex justify-between px-4 py-2 text-gray-100 bg-indigo-300">
       <div class="flex sm:space-x-8">
         <div class="items-center space-x-2 hidden md:flex">
           <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,11 +83,11 @@
       </div>
     </nav>
 
-    <div class="w-full h-screen relative  bg-gray-100">
+    <main class="relative w-full h-screen bg-gray-100">
       <% @results.feedbacks.limit(9).each do |feedback| %>
         <%= render(FeedbackViewComponent.new(feedback: feedback, current_user: current_user)) %>
       <% end %>
-    </div>
+    </main>
   </div>
   <%= render "suggestions/sidebar_mobile" %>
 </div>
