@@ -72,3 +72,8 @@ yarn-debug.log*
 #
 # End Frontendmentor
 #
+
+#
+# Ignore vscode configuration
+#
+.vscode/*
