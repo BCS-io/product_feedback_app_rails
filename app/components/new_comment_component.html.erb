@@ -1,15 +1,19 @@
 <%= form_with model: [@commentable, Comment.new], html: { class: "#{@klass} mt-6 rounded-xl", data: { "reply-target": @reply_target } } do |form|  %>
-  <div class="mt-6 sm:col-span-6">
+  <div class="mt-6 sm:col-span-6"
+       data-controller="countdown"
+       data-countdown-from-value="250">
     <%= form.label :content, "Add Comment", class: "block text-xl font-bold" %>
     <div class="mt-1">
       <%= form.text_area :content, rows: "4",
                          class: "shadow-sm text-indigo-400 border-none focus:ring-indigo-200 focus:border-indigo-200 block w-full sm:text-base bg-gray-100 rounded-md",
                          placeholder: "Type your comment here",
                          data: { controller: "textarea-autogrow",
-                                 "textarea-autogrow-resize-debounce-delay-value": "500" } %>
+                                 "textarea-autogrow-resize-debounce-delay-value": "500",
+                                 "countdown-target": "input" }
+      %>
     </div>
     <div class="mt-4 flex justify-between">
-      <p class="mt-2 text-xs text-gray-300">250 characters left</p>
+      <p class="mt-2 text-xs text-gray-300"><strong data-countdown-target="counter"></strong> characters left</p>
       <%= form.hidden_field :parent_id, value: @parent_id %>
       <%= form.submit "Post Comment", class: "relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-bold rounded-lg text-white bg-purple-200 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500" %>
     </div>
