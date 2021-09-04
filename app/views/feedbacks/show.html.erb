@@ -1,164 +1,166 @@
-<nav class="flex justify-between mx-auto px-2 max-w-3xl m-6">
-  <div>
-    <%= link_to :back, class: "flex items-center" do %>
-      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4.33447 9L0.334473 5L4.33447 1" stroke="#4661E6" stroke-width="2"/>
-      </svg>
-      <span class="ml-2">Go Back</span>
-    <% end %>
-  </div>
-  <div>
-    <%= render(EditFeedbackLinkComponent.new(feedback: @feedback, current_user: current_user)) %>
-  </div>
-</nav>
+<div class="mx-6 mt-6 md:mx-auto max-w-3xl md:px-10">
+  <nav class="flex justify-between items-center">
+    <div>
+      <%= link_to :back, class: "flex items-center" do %>
+        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.33447 9L0.334473 5L4.33447 1" stroke="#4661E6" stroke-width="2"/>
+        </svg>
+        <span class="ml-2">Go Back</span>
+      <% end %>
+    </div>
+    <div>
+      <%= render(EditFeedbackLinkComponent.new(feedback: @feedback, current_user: current_user)) %>
+    </div>
+  </nav>
 
-<div class="mt-10 relative mx-auto px-6 max-w-3xl w-full  bg-white rounded-xl border">
-  <%= render(FeedbackViewComponent.new(feedback: @feedback, current_user: current_user, text_limit: false)) %>
+  <div class="mt-6 relative bg-white rounded-xl">
+    <%= render(FeedbackViewComponent.new(feedback: @feedback, current_user: current_user, text_limit: false)) %>
 
-  <div class="mt-20 mx-6 mb-6 bg-white rounded-xl">
-    <h3 class="pt-6 ml-6 text-xl font-bold"><span><%= @feedback.comments_count %></span> Comments</h3>
+    <div class="mt-20 mb-6 bg-white rounded-xl">
+      <h3 class="pt-6 ml-6 text-xl font-bold"><span><%= @feedback.comments_count %></span> Comments</h3>
 
-    <div class="mt-6 px-6 py-8"> <!-- comments wrapper -->
+      <div class="mt-6 px-6 md:px-8 py-8"> <!-- comments wrapper -->
 
-      <div class="test-show-comments">
-        <%= render(CommentComponent.with_collection(@feedback.comments.where(parent_id: nil), max_nesting: 8)) %>
-      </div>
+        <div class="test-show-comments">
+          <%= render(CommentComponent.with_collection(@feedback.comments.where(parent_id: nil), max_nesting: 8)) %>
+        </div>
 
-      <div class="hidden">
-        <!-- comment begin -->
-        <div id="comment-1" class="">  <!-- relative my-5 mx-auto -->
-          <a href="#comment-1" class="absolute">
-            <span class="sr-only">Jump to comment-1</span>
-          </a>
-          <!-- heading starts -->
-          <div class="flex"> <!-- comment-heading items-center h-12 (50px)   -->
-            <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <div class="ml-4 flex-1">  <!-- comment-voting ( -flex )  -->
-              <h4 class="text-xs font-bold">Eijah Moss</h4>
-              <p class="text-xs text-gray-300">@hexagon.betsgon</p>
-          </div>
-            <div class="">
-              <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
+        <div class="hidden">
+          <!-- comment begin -->
+          <div id="comment-1" class="">  <!-- relative my-5 mx-auto -->
+            <a href="#comment-1" class="absolute">
+              <span class="sr-only">Jump to comment-1</span>
+            </a>
+            <!-- heading starts -->
+            <div class="flex"> <!-- comment-heading items-center h-12 (50px)   -->
+              <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+              <div class="ml-4 flex-1">  <!-- comment-voting ( -flex )  -->
+                <h4 class="text-xs font-bold">Eijah Moss</h4>
+                <p class="text-xs text-gray-300">@hexagon.betsgon</p>
             </div>
-          </div>
-          <!-- heading ends -->
-          <!-- body starts -->
-          <div class="ml-12 mt-4">
-            <p class="text-gray-300">
-              Also, please allow styles to be applied based on
-              system preferences. I would love to be able to
-              browse Frontend Mentor in the evening after my
-              device’s dark mode turns on without the bright
-              background it currently has.
-            <p>
-          </div>
-          <!-- body ends -->
-
-          <!-- replies start -->
-          <!-- replies end -->
-        </div> <!-- comment end -->
-
-        <hr>
-
-        <!-- comment begin -->
-        <div id="comment-2" class="relative">  <!-- relative my-5 mx-auto -->
-          <a href="#comment-2" class="comment-border-link">
-            <span class="sr-only">Jump to comment-2</span>
-          </a>
-
-        <!-- heading starts -->
-          <div class="flex h-12"> <!-- comment-heading items-center h-12 (50px)   -->
-            <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            <div class="ml-4 flex-1">  <!-- comment-voting ( -flex )  -->
-              <h4 class="text-xs font-bold">James Skinner</h4>
-              <p class="text-xs text-gray-300">@hummingbird1</p>
-          </div>
-            <div class="">
-              <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
-            </div>
-          </div>
-          <!-- heading ends -->
-          <!-- body starts -->
-          <div class="relative ml-12 mt-4">
-            <p class="text-gray-300">
-              Second this! I do a lot of late night coding and reading. Adding a dark theme
-              can be great for preventing eye strain and the headaches that result. It’s also
-              quite a trend with modern apps and  apparently saves battery life.
-              <p>
-          </div>
-
-          <!-- replies start - comment 2 -->
-          <div class="ml-12 mt-8">
-
-            <!-- comment begin -->
-            <div id="comment-3" class="mt-4">  <!-- relative my-5 mx-auto --> <!-- mt-4 -->
-              <a href="#comment-3" class="">
-                <span class="sr-only">Jump to comment-3</span>
-              </a>
-              <!-- heading starts -->
-              <div class="flex">
-                <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                <div class="ml-4 flex-1">
-                  <h4 class="text-xs font-bold">Anne Valentine</h4>
-                  <p class="text-xs text-gray-300">@annev1990</p>
-              </div>
-                <div class="">
-                  <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
-                </div>
-              </div>
-              <!-- heading ends -->
-              <!-- body starts -->
               <div class="">
-                <p class="mt-4 mb-6 text-gray-300">
-                  <span class="text-purple-200">@hummingbird1</span>  While waiting for dark mode, there are
-                  browser extensions that will also do the job. Search for "dark theme” followed by your browser. There might be a need to turn off the extension for sites with naturally black backgrounds though.
-                <p>
+                <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
               </div>
-              <!-- replies start -->
-                <!-- not used for this app -->
-              <!-- replies end -->
             </div>
-            <!-- comment end -->
+            <!-- heading ends -->
+            <!-- body starts -->
+            <div class="ml-12 mt-4">
+              <p class="text-gray-300">
+                Also, please allow styles to be applied based on
+                system preferences. I would love to be able to
+                browse Frontend Mentor in the evening after my
+                device’s dark mode turns on without the bright
+                background it currently has.
+              <p>
+            </div>
+            <!-- body ends -->
 
-            <!-- comment begin -->
-            <div id="comment-4" class="mt-4">  <!-- relative my-5 mx-auto --> <!-- mt-4 >
-              <a href="#comment-4" class="absolute">
-                <span class="sr-only">Jump to comment-3</span>
-              </a>
+            <!-- replies start -->
+            <!-- replies end -->
+          </div> <!-- comment end -->
 
-              <!-- heading starts -->
-              <div class="flex">
-                <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="">
-                <div class="ml-4 flex-1">
-                  <h4 class="text-xs font-bold">Ryan Welles</h4>
-                  <p class="text-xs text-gray-300">@yoyager.344</p>
-                </div>
-                <div class="">
-                  <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
-                </div>
+          <hr>
+
+          <!-- comment begin -->
+          <div id="comment-2" class="relative">  <!-- relative my-5 mx-auto -->
+            <a href="#comment-2" class="comment-border-link">
+              <span class="sr-only">Jump to comment-2</span>
+            </a>
+
+          <!-- heading starts -->
+            <div class="flex h-12"> <!-- comment-heading items-center h-12 (50px)   -->
+              <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+              <div class="ml-4 flex-1">  <!-- comment-voting ( -flex )  -->
+                <h4 class="text-xs font-bold">James Skinner</h4>
+                <p class="text-xs text-gray-300">@hummingbird1</p>
+            </div>
+              <div class="">
+                <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
               </div>
-              <!-- heading ends -->
-              <!-- body starts -->
-              <div>
-                <p class="mt-4 mb-6 text-gray-300">
-                  <span class="text-purple-200">@annev1990</span>  Good point! Using any kind of style extension
-                  is great and can be highly customizable, like the ability to
-                  change contrast and brightness. I'd prefer not to use one of
-                  such extensions, however, for security and privacy reasons.
+            </div>
+            <!-- heading ends -->
+            <!-- body starts -->
+            <div class="relative ml-12 mt-4">
+              <p class="text-gray-300">
+                Second this! I do a lot of late night coding and reading. Adding a dark theme
+                can be great for preventing eye strain and the headaches that result. It’s also
+                quite a trend with modern apps and  apparently saves battery life.
                 <p>
+            </div>
+
+            <!-- replies start - comment 2 -->
+            <div class="ml-12 mt-8">
+
+              <!-- comment begin -->
+              <div id="comment-3" class="mt-4">  <!-- relative my-5 mx-auto --> <!-- mt-4 -->
+                <a href="#comment-3" class="">
+                  <span class="sr-only">Jump to comment-3</span>
+                </a>
+                <!-- heading starts -->
+                <div class="flex">
+                  <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                  <div class="ml-4 flex-1">
+                    <h4 class="text-xs font-bold">Anne Valentine</h4>
+                    <p class="text-xs text-gray-300">@annev1990</p>
+                </div>
+                  <div class="">
+                    <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
+                  </div>
+                </div>
+                <!-- heading ends -->
+                <!-- body starts -->
+                <div class="">
+                  <p class="mt-4 mb-6 text-gray-300">
+                    <span class="text-purple-200">@hummingbird1</span>  While waiting for dark mode, there are
+                    browser extensions that will also do the job. Search for "dark theme” followed by your browser. There might be a need to turn off the extension for sites with naturally black backgrounds though.
+                  <p>
+                </div>
+                <!-- replies start -->
+                  <!-- not used for this app -->
+                <!-- replies end -->
               </div>
-              <!-- replies start -->
-                <!-- not used for this app -->
-              <!-- replies end -->
-            </div> <!-- comment-4 end -->
-          </div> <!-- replies end - comment 2 -->
-        </div> <!-- comment end -->
-      </div> <!-- wrapper around static comments -->
+              <!-- comment end -->
 
-      <div class="test-new-comment">
-        <%= render(NewCommentComponent.new(commentable: @feedback)) %>
-      <div>
+              <!-- comment begin -->
+              <div id="comment-4" class="mt-4">  <!-- relative my-5 mx-auto --> <!-- mt-4 >
+                <a href="#comment-4" class="absolute">
+                  <span class="sr-only">Jump to comment-3</span>
+                </a>
 
-    </div> <!-- comments wrapper -->
+                <!-- heading starts -->
+                <div class="flex">
+                  <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="">
+                  <div class="ml-4 flex-1">
+                    <h4 class="text-xs font-bold">Ryan Welles</h4>
+                    <p class="text-xs text-gray-300">@yoyager.344</p>
+                  </div>
+                  <div class="">
+                    <%= link_to "Reply", "#", class: "text-xs text-indigo-200" %>
+                  </div>
+                </div>
+                <!-- heading ends -->
+                <!-- body starts -->
+                <div>
+                  <p class="mt-4 mb-6 text-gray-300">
+                    <span class="text-purple-200">@annev1990</span>  Good point! Using any kind of style extension
+                    is great and can be highly customizable, like the ability to
+                    change contrast and brightness. I'd prefer not to use one of
+                    such extensions, however, for security and privacy reasons.
+                  <p>
+                </div>
+                <!-- replies start -->
+                  <!-- not used for this app -->
+                <!-- replies end -->
+              </div> <!-- comment-4 end -->
+            </div> <!-- replies end - comment 2 -->
+          </div> <!-- comment end -->
+        </div> <!-- wrapper around static comments -->
+
+        <div class="test-new-comment">
+          <%= render(NewCommentComponent.new(commentable: @feedback)) %>
+        <div>
+
+      </div> <!-- comments wrapper -->
+    </div>
   </div>
 </div>
