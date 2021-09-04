@@ -79,7 +79,9 @@
           </svg>
           <span class="font-bold">Add Feedback</span>
         <% end %>
-        <%= render(UserLoginComponent.new(current_user: current_user, user_signed_in: user_signed_in?)) %>
+        <div class="hidden sm:block">
+          <%= render(UserLoginComponent.new(current_user: current_user, user_signed_in: user_signed_in?)) %>
+        </div>
       </div>
     </nav>
 

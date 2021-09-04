@@ -6,7 +6,9 @@ module Roadmaps
       it "return visits roadmap page" do
         visit root_path
 
-        click_link "view"
+        within ".test-desktop" do
+          click_link "view"
+        end
 
         expect(page).to have_selector("h1", text: "Roadmap")
 
