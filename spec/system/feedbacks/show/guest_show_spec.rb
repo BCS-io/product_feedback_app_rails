@@ -34,7 +34,6 @@ module Feedbacks
       end
 
       it "is redirected via sign in when voting" do
-        skip("Devise redirecting unauthorized require setup")
         feedback = create(:feedback, status: "suggestion", user: create(:staff), title: "Joy")
         create(:vote, feedback: feedback, user: create(:staff))
         visit root_path

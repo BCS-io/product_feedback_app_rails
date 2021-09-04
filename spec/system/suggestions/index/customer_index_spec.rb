@@ -30,8 +30,8 @@ module Suggestions
         customer = create(:customer)
         feedback = create(:feedback, status: "suggestion", user: create(:staff))
         create(:vote, feedback: feedback, user: create(:staff))
-        visit root_path
         sign_in customer
+        visit root_path
 
         within ".test-feedback-view-component" do
           click_on "1"

@@ -34,7 +34,6 @@ module Roadmaps
       end
 
       it "redirects to sign in if click on vote", js: true do
-        skip "Vote is an Ajax request which devise requires some setup to work"
         feedback = create(:feedback, status: "live", user: create(:staff))
         create(:vote, user: create(:staff), feedback: feedback)
         visit roadmaps_path
