@@ -4,13 +4,13 @@ RSpec.describe NotificationComponent, type: :component do
   it "renders a notice as expected" do
     render_inline(NotificationComponent.new(type: "notice", message: "Successfully logged in"))
 
-    expect(rendered_component).to have_css(".bg-green-50 .text-green-700", text: "Successfully logged in")
+    expect(rendered_component).to have_css(".bg-green-400.border-green-700.text-white", text: "Successfully logged in")
   end
 
   it "renders an alert as expected" do
     render_inline(NotificationComponent.new(type: "alert", message: "Unauthorized access"))
 
-    expect(rendered_component).to have_css(".bg-red-50 .text-red-700", text: "Unauthorized access")
+    expect(rendered_component).to have_css(".bg-red-100.text-black.border-red-200", text: "Unauthorized access")
   end
 
   it "errors" do
