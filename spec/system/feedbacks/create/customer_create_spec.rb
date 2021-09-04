@@ -20,8 +20,8 @@ module Feedbacks
 
       it "creates feedback" do
         customer = create(:customer)
-        visit root_path
         sign_in customer
+        visit root_path
 
         click_link "Add Feedback"
 
@@ -37,8 +37,8 @@ module Feedbacks
 
       it "displays errors" do
         customer = create(:customer)
-        visit root_path
         sign_in customer
+        visit root_path
 
         click_link "Add Feedback"
 

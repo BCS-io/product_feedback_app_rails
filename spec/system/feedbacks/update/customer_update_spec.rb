@@ -23,8 +23,8 @@ module Feedbacks
         create(:feedback, title: "Offer dark version",
                           status: "suggestion",
                           user: customer)
-        visit root_path
         sign_in customer
+        visit root_path
 
         click_link "Offer dark version"
 
@@ -50,8 +50,8 @@ module Feedbacks
         create(:feedback, title: "Offer dark version",
                           status: "suggestion",
                           user: customer)
-        visit root_path
         sign_in customer
+        visit root_path
 
         click_link "Offer dark version"
 
@@ -70,8 +70,8 @@ module Feedbacks
         create(:feedback, title: "Offer dark version",
                           status: "suggestion",
                           user: customer)
-        visit root_path
         sign_in customer
+        visit root_path
 
         click_link "Offer dark version"
 

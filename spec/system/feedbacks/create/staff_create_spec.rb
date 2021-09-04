@@ -5,8 +5,8 @@ module Feedbacks
     RSpec.describe "StaffCreate", type: :system, js: true do
       it "creates feedback" do
         customer = create(:staff)
-        visit root_path
         sign_in customer
+        visit root_path
 
         click_link "Add Feedback"
 

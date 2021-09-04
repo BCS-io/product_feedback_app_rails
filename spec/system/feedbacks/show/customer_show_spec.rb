@@ -10,8 +10,8 @@ module Feedbacks
                           title: "Visit the show page",
                           user: create(:staff))
         create(:vote, feedback: feedback, user: create(:staff))
-        visit root_path
         sign_in customer
+        visit root_path
 
         click_on "Visit the show page"
 
