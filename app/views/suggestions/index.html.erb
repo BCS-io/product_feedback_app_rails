@@ -9,7 +9,7 @@
   data-slideover-active-target="#slideover-target"
   class="flex flex-col sm:mx-4 lg:mx-auto sm:mt-4 md:mt-6 lg:flex-row lg:max-w-6xl lg:gap-7">
 
-  <nav class="test-desktop flex lg:ml-4 lg:flex-col lg:max-w-2xs gap-2 lg:gap-6">
+  <nav class="test-desktop flex lg:ml-4 lg:flex-col lg:max-w-2xs gap-2 lg:gap-6 sticky top-0 z-10">
     <div class="flex-1 lg:flex-initial flex px-4 py-4 lg:h-32 justify-between items-center text-white bg-gradient-to-tr from-indigo-200 via-purple-100 via-purple-200 to-red-200 sm:rounded-lg">
       <div>
         <h1 class="text-lg sm:text-2xl sm:font-bold">Frontend Mentor</h1>
@@ -51,7 +51,7 @@
 
   <div class="flex-1  mt-0 sm:mt-8 lg:mt-0 overflow-hidden">
 
-    <nav class="flex justify-between px-4 py-2 text-gray-100 bg-indigo-300">
+    <nav class="flex justify-between px-2 py-2 text-gray-100 bg-indigo-300">
       <div class="flex sm:space-x-8">
         <div class="items-center space-x-2 hidden md:flex">
           <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,10 +62,9 @@
         <div class="flex items-center space-x-1">
           <%= form_with url: root_path, method: :get, class: "flex items-center justify-between" do |f| %>
             <%= hidden_field_tag :category, params[:category] %>
-            <%= f.label :column_sort, "Sort by", class: "text-gray-100" %>
-            <p class="mx-2">:</p>
-            <div class="relative text-left">
-                <%= f.select :column_sort, options_for_select([["Most Upvotes", "upvotes_count-desc" ], ["Least Upvotes", "upvotes_count-asc"], [ "Most Comments", "comments_count-desc"], [ "Least Comments", "comments_count-asc"] ], selected: params[:column_sort]), {}, {onchange: "javascript: this.form.commit.click();", class: "custom-select relative inline-flex justify-center appearance-none rounded-md shadow-sm py-2 text-sm font-bold bg-indigo-400 bg-no-repeat hover:bg-gray-50 border-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"} %>
+            <%= f.label :column_sort, "Sort by : ", class: "whitespace-nowrap text-gray-100 text-xs md:text-sm" %>
+            <div class="relative text-left ">
+                <%= f.select :column_sort, options_for_select([["Most Upvotes", "upvotes_count-desc" ], ["Least Upvotes", "upvotes_count-asc"], [ "Most Comments", "comments_count-desc"], [ "Least Comments", "comments_count-asc"] ], selected: params[:column_sort]), {}, {onchange: "javascript: this.form.commit.click();", class: "custom-select relative inline-flex justify-center appearance-none rounded-md shadow-sm py-2 text-xs md:text-sm font-bold bg-indigo-400 bg-no-repeat hover:bg-gray-50 border-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"} %>
                 <%= f.submit class: "hidden" %>
             </div>
           <% end %>
@@ -77,7 +76,7 @@
           <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
           </svg>
-          <span class="font-bold">Add Feedback</span>
+          <span class="font-bold"><span>Add Feedback</span>
         <% end %>
         <div class="hidden sm:block">
           <%= render(UserLoginComponent.new(current_user: current_user, user_signed_in: user_signed_in?)) %>

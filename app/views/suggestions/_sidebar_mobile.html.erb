@@ -9,15 +9,18 @@
     </div>
 
     <!-- Actual sidebar panel start -->
-    <div id="slideover-target" data-slideover-target="menu" class="relative  flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-gray-100 transition ease-in-out duration-300 transform translate-x-full hidden">
+    <div id="slideover-target" data-slideover-target="menu" class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-gray-100 transition ease-in-out duration-300 transform translate-x-full hidden">
       <div class="mt-5 flex-1 h-0 overflow-y-auto px-6">
-        <nav class="px-2 test-mobile flex flex-col space-y-1">
+        <nav class="px-2 test-mobile flex flex-col space-y-4">
+
           <div class="flex justify-end">
             <%= render(UserLoginComponent.new(current_user: current_user, user_signed_in: user_signed_in?)) %>
           </div>
-          <section class="mt-4">
+
+          <section>
             <%= render(CategoryLinksComponent.new(category: params[:category])) %>
           </section>
+
           <section class="mt-6 flex-1 px-6 py-2 sm:flex sm:flex-col lg:flex-initial rounded-lg bg-white">
             <div class="flex justify-between">
               <h2 class="text-xl font-bold">Roadmap</h2>
