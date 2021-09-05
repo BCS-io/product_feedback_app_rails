@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-6 sm:py-12 sm:px-6 lg:px-8">
   <div class="flex flex-col items-center sm:mx-auto sm:w-full sm:max-w-md">
     <div class="flex w-40 px-4 py-4 justify-between items-center  text-white bg-gradient-to-tr from-indigo-200 via-purple-100 via-purple-200 to-red-200 sm:rounded-lg">
       <div class="space-y-2">
@@ -13,7 +13,7 @@
   </div>
 
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+    <div class="bg-white pt-1 sm:py-4 px-4 shadow sm:rounded-lg sm:px-10">
 
       <% if alert%>
         <!-- This example requires Tailwind CSS v2.0+ -->
@@ -39,7 +39,7 @@
           <div class="field">
             <%= f.label :login, class: "block text-sm font-medium text-gray-700" %>
             <div class="mt-1">
-              <%= f.text_field :login, autofocus: true, autocomplete: "login", class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+              <%= f.text_field :login, autofocus: true, autocomplete: "login", class: "appearance-none block w-full px-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
             </div>
           </div>
        </div>
