@@ -26,6 +26,14 @@ class ApplicationController < ActionController::Base
     session[:last_index_page] || default_path
   end
 
+  def store_back_location!
+    session[:return_to] = request.referer
+  end
+
+  def retrieve_back_location_or_default(default_path: root_path)
+    session.delete(:return_to) || default_path
+  end
+
   private
 
   # Its important that the location is NOT stored if:

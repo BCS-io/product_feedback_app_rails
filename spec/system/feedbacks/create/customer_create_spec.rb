@@ -18,7 +18,7 @@ module Feedbacks
         expect(page).to have_selector("h1", text: "Roadmap")
       end
 
-      it "creates feedback" do
+      it "creates feedback from root" do
         customer = create(:customer)
         sign_in customer
         visit root_path
@@ -32,7 +32,24 @@ module Feedbacks
         click_button "Add Feedback"
 
         expect(page).to have_text "Feedback was successfully created"
-        expect(page).to have_text "New suggestions"
+        expect(page).to have_selector("h1", text: "Frontend Mentor")
+      end
+
+      it "creates feedback from roadmap", js: true do
+        customer = create(:customer)
+        sign_in customer
+        visit roadmaps_path
+
+        click_link "Add Feedback"
+
+        fill_in "Title", with: "New suggestions"
+        select "Bug", from: "Category"
+        fill_in "Feedback Detail", with: "I have a suggestion"
+
+        click_button "Add Feedback"
+
+        expect(page).to have_text "Feedback was successfully created"
+        expect(page).to have_selector "h1", text: "Roadmap"
       end
 
       it "displays errors" do

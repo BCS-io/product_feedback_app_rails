@@ -18,7 +18,7 @@ module Feedbacks
         expect(page).to have_link nil, text: "Edit Feedback"
       end
 
-      it "updates feedback" do
+      it "updates feedback", js: true do
         customer = create(:customer)
         create(:feedback, title: "Offer dark version",
                           status: "suggestion",
@@ -37,6 +37,8 @@ module Feedbacks
         click_button "Save Changes"
 
         expect(page).to have_text "Feedback was successfully updated"
+
+        expect(page).to have_link "Edit Feedback"
 
         within ".test-feedback-view-component" do
           expect(page).to have_text "Different title"

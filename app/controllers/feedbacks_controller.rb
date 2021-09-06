@@ -3,6 +3,7 @@ class FeedbacksController < ApplicationController
 
   def new
     @feedback = Feedback.new
+    store_back_location!
     authorize @feedback
   end
 
@@ -15,7 +16,7 @@ class FeedbacksController < ApplicationController
     @feedback = current_user.feedbacks.build(feedback_params)
     @feedback.status = "suggestion" unless current_user.staff_role?
     if @feedback.save
-      redirect_to root_path, notice: "Feedback was successfully created"
+      redirect_to retrieve_back_location_or_default, notice: "Feedback was successfully created"
     else
       render :new
     end
@@ -24,13 +25,14 @@ class FeedbacksController < ApplicationController
 
   def edit
     @feedback = Feedback.find(params[:id])
+    store_back_location!
     authorize @feedback
   end
 
   def update
     @feedback = Feedback.find(params[:id])
     if @feedback.update(feedback_params)
-      redirect_to root_path, notice: "Feedback was successfully updated"
+      redirect_to retrieve_back_location_or_default, notice: "Feedback was successfully updated"
     else
       render :edit
     end
