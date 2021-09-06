@@ -2,7 +2,7 @@ require "rails_helper"
 
 module Feedbacks
   module Show
-    RSpec.describe "GuestShow", type: :system, js: true do
+    RSpec.describe "GuestShow", type: :system do
       it "return back from show page to suggestions" do
         create(:feedback, status: "suggestion", user: create(:staff), title: "Joy")
         visit root_path
@@ -17,7 +17,7 @@ module Feedbacks
         expect(page).to have_selector("h1", text: "Frontend Mentor")
       end
 
-      it "return back from show page to roadmaps", js: true do
+      it "return back from show page to roadmaps" do
         create(:feedback, status: "live",
                           user: create(:staff),
                           title: "Koi")

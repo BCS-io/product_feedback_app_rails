@@ -26,7 +26,7 @@ module Feedbacks
         end
       end
 
-      it "can comment", js: true do
+      it "can comment" do
         customer = create(:customer, :avatared)
         feedback = create(:feedback, title: "Visit the show page", user: create(:staff))
         sign_in customer

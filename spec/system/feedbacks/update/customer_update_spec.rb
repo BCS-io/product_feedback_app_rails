@@ -3,7 +3,7 @@ require "rails_helper"
 module Feedbacks
   module Update
     RSpec.describe "CustomerUpdate", type: :system do
-      it "return visit when clicking back", js: true do
+      it "return visit when clicking back" do
         customer = create(:customer)
         feedback = create(:feedback, title: "Offer dark version",
                                      status: "suggestion",
@@ -18,7 +18,7 @@ module Feedbacks
         expect(page).to have_link nil, text: "Edit Feedback"
       end
 
-      it "updates feedback", js: true do
+      it "updates feedback" do
         customer = create(:customer)
         create(:feedback, title: "Offer dark version",
                           status: "suggestion",

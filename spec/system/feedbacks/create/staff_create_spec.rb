@@ -2,7 +2,7 @@ require "rails_helper"
 
 module Feedbacks
   module Create
-    RSpec.describe "StaffCreate", type: :system, js: true do
+    RSpec.describe "StaffCreate", type: :system do
       it "creates feedback" do
         customer = create(:staff)
         sign_in customer

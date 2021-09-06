@@ -3,7 +3,7 @@ require "rails_helper"
 module Feedbacks
   module Create
     RSpec.describe "CustomerCreate", type: :system do
-      it "return visit when clicking back", js: true do
+      it "return visit when clicking back" do
         customer = create(:customer)
         sign_in customer
 
@@ -35,7 +35,7 @@ module Feedbacks
         expect(page).to have_selector("h1", text: "Frontend Mentor")
       end
 
-      it "creates feedback from roadmap", js: true do
+      it "creates feedback from roadmap" do
         customer = create(:customer)
         sign_in customer
         visit roadmaps_path
@@ -66,7 +66,7 @@ module Feedbacks
         expect(page).to have_text "can't be blank"
       end
 
-      it "returns back when it cancels feedback", js: true do
+      it "returns back when it cancels feedback" do
         customer = create(:customer)
         sign_in customer
 
