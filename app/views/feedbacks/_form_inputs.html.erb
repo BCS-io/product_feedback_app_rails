@@ -41,9 +41,7 @@
     </div>
     <div class="mt-4">
       <%= form.text_area :description,
-                         class: "w-full h-32 text-indigo-400 bg-gray-100 border-none",
-                         data: { controller: "textarea-autogrow",
-                                 "textarea-autogrow-resize-debounce-delay-value": "500" } %>
+                         class: "w-full h-32 text-indigo-400 bg-gray-100 border-none" %>
       <p class="text-red-200"><%= show_errors(@feedback, :description) %></p>
     </div>
   </div>
