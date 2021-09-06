@@ -40,7 +40,8 @@ class FeedbacksController < ApplicationController
   def destroy
     @feedback = Feedback.find(params[:id])
     @feedback.destroy
-    redirect_to root_path, notice: "Feedback was successfully destroyed"
+    redirect_to retrieve_last_index_page_or_default,
+                notice: "Feedback was successfully destroyed"
     authorize @feedback
   end
 
