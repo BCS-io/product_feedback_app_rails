@@ -7,7 +7,7 @@
   data-slideover-leaving-class=""
   data-slideover-leave-timeout="300,0"
   data-slideover-active-target="#slideover-target"
-  class="flex flex-col sm:mx-4 lg:mx-auto sm:mt-4 md:mt-6 lg:flex-row lg:max-w-6xl lg:gap-7">
+  class="flex flex-col sm:mx-4 sm:mt-4 md:mt-6 lg:flex-row lg:mt-4 lg:mx-auto lg:max-w-6xl lg:gap-7">
 
   <nav class="test-desktop flex lg:ml-4 lg:flex-col lg:max-w-2xs gap-2 lg:gap-6 sticky top-0 z-10">
     <div class="flex-1 lg:flex-initial flex px-4 py-4 lg:h-32 justify-between items-center text-white bg-gradient-to-tr from-indigo-200 via-purple-100 via-purple-200 to-red-200 sm:rounded-lg">
@@ -49,9 +49,8 @@
     </div>
   </nav>
 
-  <div class="flex-1  mt-0 sm:mt-8 lg:mt-0 overflow-hidden">
-
-    <nav class="flex justify-between px-2 py-2 text-gray-100 bg-indigo-300">
+  <div class="flex flex-col">
+    <nav class="flex justify-between mt-0 sm:mt-9 lg:mt-0 px-2 py-2 text-gray-100 bg-indigo-300 sticky">
       <div class="flex sm:space-x-8">
         <div class="items-center space-x-2 hidden md:flex">
           <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +83,7 @@
       </div>
     </nav>
 
-    <main class="relative w-full h-screen bg-gray-100">
+    <main class="relative max-w-5xl lg:max-w-3xl  h-screen overflow-auto bg-gray-100">
       <% @results.feedbacks.limit(9).each do |feedback| %>
         <%= render(FeedbackViewComponent.new(feedback: feedback, current_user: current_user)) %>
       <% end %>

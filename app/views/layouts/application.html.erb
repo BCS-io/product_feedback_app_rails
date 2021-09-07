@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap" rel="stylesheet">
   </head>
 
-  <body class="bg-gray-100">
+  <body class="bg-gray-100 overflow-hidden">
     <% flash.each do |type, message| %>
       <%= render(NotificationComponent.new(type: type, message: message)) %>
     <% end %>
