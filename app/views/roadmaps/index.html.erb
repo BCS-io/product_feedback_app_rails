@@ -1,27 +1,28 @@
+<nav class="flex justify-between items-center md:mx-4 md:mt-6 lg:max-w-5xl lg:mx-auto text-xs text-bold bg-indigo-400 text-white sticky top-0">
+  <div class="flex flex-col ml-6 my-6">
+    <%= link_to root_path, class: "flex items-center" do %>
+      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.33447 9L0.334473 5L4.33447 1" stroke="white" stroke-width="2"/>
+      </svg>
+      <span class="ml-2">Go Back</span>
+    <% end %>
+    <h1 class="text-xl">Roadmap</h1>
+  </div>
+  <div class="flex mr-4">
+    <%= link_to new_feedback_path, class: "relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-medium rounded-md text-white bg-purple-200 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500" do %>
+      <!-- Heroicon name: solid/plus -->
+      <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+      </svg>
+      <span class="font-bold">Add Feedback</span>
+    <% end %>
+    <div class="ml-2">
+      <%= render(UserLoginComponent.new(current_user: current_user, user_signed_in: user_signed_in?)) %>
+    </div>
+  </div>
+</nav>
+
 <div class="md:mx-4 md:mt-6 lg:max-w-5xl lg:mx-auto">
-  <nav class="flex justify-between items-center text-xs text-bold bg-indigo-400 text-white">
-    <div class="flex flex-col ml-6 my-6">
-      <%= link_to root_path, class: "flex items-center" do %>
-        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4.33447 9L0.334473 5L4.33447 1" stroke="white" stroke-width="2"/>
-        </svg>
-        <span class="ml-2">Go Back</span>
-      <% end %>
-      <h1 class="text-xl">Roadmap</h1>
-    </div>
-    <div class="flex mr-4">
-      <%= link_to new_feedback_path, class: "relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-xs font-medium rounded-md text-white bg-purple-200 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500" do %>
-        <!-- Heroicon name: solid/plus -->
-        <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-          <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
-        </svg>
-        <span class="font-bold">Add Feedback</span>
-      <% end %>
-      <div class="ml-2">
-        <%= render(UserLoginComponent.new(current_user: current_user, user_signed_in: user_signed_in?)) %>
-      </div>
-    </div>
-  </nav>
 
   <div class="max-w-full w-full" data-controller="tabs" data-tabs-active-tab="active text-indigo-400">
 
