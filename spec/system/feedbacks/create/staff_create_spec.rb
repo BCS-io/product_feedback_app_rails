@@ -18,6 +18,9 @@ module Feedbacks
         click_button "Add Feedback"
 
         expect(page).to have_text "Feedback was successfully created"
+
+        click_link "Go Back"
+
         expect(page).not_to have_text "New suggestions"
       end
     end

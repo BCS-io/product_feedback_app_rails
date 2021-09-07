@@ -16,7 +16,7 @@ class FeedbacksController < ApplicationController
     @feedback = current_user.feedbacks.build(feedback_params)
     @feedback.status = "suggestion" unless current_user.staff_role?
     if @feedback.save
-      redirect_to retrieve_back_location_or_default, notice: "Feedback was successfully created"
+      redirect_to feedback_path(@feedback), notice: "Feedback was successfully created"
     else
       render :new
     end

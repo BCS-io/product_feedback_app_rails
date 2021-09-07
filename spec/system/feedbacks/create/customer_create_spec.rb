@@ -32,6 +32,9 @@ module Feedbacks
         click_button "Add Feedback"
 
         expect(page).to have_text "Feedback was successfully created"
+
+        click_link "Go Back"
+
         expect(page).to have_selector("h1", text: "Frontend Mentor")
       end
 
@@ -49,6 +52,9 @@ module Feedbacks
         click_button "Add Feedback"
 
         expect(page).to have_text "Feedback was successfully created"
+
+        click_link "Go Back"
+
         expect(page).to have_selector "h1", text: "Roadmap"
       end
 
@@ -66,7 +72,7 @@ module Feedbacks
         expect(page).to have_text "can't be blank"
       end
 
-      it "returns back when it cancels feedback" do
+      it "returns back when it cancels feedback", js: true do
         customer = create(:customer)
         sign_in customer
 

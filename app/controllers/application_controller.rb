@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   after_action :verify_authorized, unless: :devise_controller?
 
+  helper_method :retrieve_last_index_page_or_default
+
   def after_sign_in_path_for(resource_or_scope)
     stored_location_for(resource_or_scope) || root_path
   end

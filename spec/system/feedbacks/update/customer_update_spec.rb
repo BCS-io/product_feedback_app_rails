@@ -45,15 +45,19 @@ module Feedbacks
           expect(page).to have_text "Enhancement"
           expect(page).to have_text "I would like to test this"
         end
+
+        click_link "Go Back"
+
+        expect(page).to have_selector("h1", text: "Frontend Mentor")
       end
 
       it "can cancel feedback" do
         customer = create(:customer)
         create(:feedback, title: "Offer dark version",
-                          status: "suggestion",
+                          status: "live",
                           user: customer)
         sign_in customer
-        visit root_path
+        visit roadmaps_path
 
         click_link "Offer dark version"
 
@@ -65,6 +69,10 @@ module Feedbacks
 
         expect(page).to have_link nil, text: "Edit Feedback"
         expect(page).to have_selector "h3", text: "Offer dark version"
+
+        click_link "Go Back"
+
+        expect(page).to have_selector("h1", text: "Roadmap")
       end
 
       it "displays errors" do
