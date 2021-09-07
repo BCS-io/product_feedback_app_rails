@@ -10,7 +10,7 @@ class NotificationComponent < ViewComponent::Base
   def colors
     case @type
     when "notice"
-      "bg-green-400 text-white border-green-700"
+      "bg-green-500 text-white border-green-700"
     when "alert"
       "bg-red-100 text-black border-red-200"
     else

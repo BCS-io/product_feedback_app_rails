@@ -4,7 +4,7 @@ RSpec.describe NotificationComponent, type: :component do
   it "renders a notice as expected" do
     render_inline(NotificationComponent.new(type: "notice", message: "Successfully logged in"))
 
-    expect(rendered_component).to have_css(".bg-green-400.border-green-700.text-white", text: "Successfully logged in")
+    expect(rendered_component).to have_css(".bg-green-500.border-green-700.text-white", text: "Successfully logged in")
   end
 
   it "renders an alert as expected" do
