@@ -1,6 +1,6 @@
 <nav class="flex mx-auto px-2 max-w-2xl m-6">
   <div>
-    <%= link_to :back, class: "flex items-center" do %>
+    <%= link_to retrieve_last_index_page_or_default, class: "flex items-center" do %>
       <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4.33447 9L0.334473 5L4.33447 1" stroke="#4661E6" stroke-width="2"/>
       </svg>
@@ -21,7 +21,7 @@
 
   <div class="mt-10 mb-4 flex flex-col sm:flex-row sm:justify-end inline-block">
     <%= form.submit "Add Feedback", class:  "w-full inline-flex justify-center items-center px-4 sm:px-6 py-3 sm:w-auto sm:ml-3 sm:order-2 border border-transparent shadow-sm text-xs sm:text-sm font-bold rounded-lg text-white bg-purple-200 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500" %>
-    <%= link_to :back, class: "mt-4 sm:mt-0 w-full sm:w-auto justify-center inline-flex items-center px-4 sm:px-6 py-3 border border-transparent shadow-sm text-xs sm:text-sm font-bold rounded-lg text-white bg-indigo-400 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-300" do %>
+    <%= link_to retrieve_last_index_page_or_default, class: "mt-4 sm:mt-0 w-full sm:w-auto justify-center inline-flex items-center px-4 sm:px-6 py-3 border border-transparent shadow-sm text-xs sm:text-sm font-bold rounded-lg text-white bg-indigo-400 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-300" do %>
       </svg>
       <span class="font-bold">Cancel</span>
     <% end %>

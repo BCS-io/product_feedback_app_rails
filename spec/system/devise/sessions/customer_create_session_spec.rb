@@ -31,28 +31,4 @@ RSpec.describe "Devise::Sessions::CustomerCreateSession", type: :system do
 
     expect(page).to have_text "Invalid Login or password."
   end
-
-  it "redirects to the current page after sign in" do
-    customer = create(:customer)
-    visit roadmaps_path
-
-    click_on "Add Feedback"
-
-    fill_in "Login", with: customer.username
-    fill_in "Password", with: "password"
-    click_on "Sign in"
-
-    expect(page).to have_selector("h1", text: "Create New Feedback")
-  end
-
-  it "redirects to the home page after sign in without previous page" do
-    customer = create(:customer)
-    visit new_user_session_path
-
-    fill_in "Login", with: customer.username
-    fill_in "Password", with: "password"
-    click_on "Sign in"
-
-    expect(page).to have_selector("h1", text: "Frontend Mentor")
-  end
 end
