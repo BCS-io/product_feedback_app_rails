@@ -1,11 +1,11 @@
 require "rails_helper"
 
-RSpec.describe "Devise::Sessions::UserNewSession", type: :system do
+RSpec.describe "Devise::Sessions::CustomerCreateSession", type: :system do
   it "signs into the app with email" do
-    user = create(:user)
+    customer = create(:customer)
     visit new_user_session_path
 
-    fill_in "Login", with: user.email
+    fill_in "Login", with: customer.email
     fill_in "Password", with: "password"
     click_on "Sign in"
 
@@ -13,10 +13,10 @@ RSpec.describe "Devise::Sessions::UserNewSession", type: :system do
   end
 
   it "signs into the app with username" do
-    user = create(:user)
+    customer = create(:customer)
     visit new_user_session_path
 
-    fill_in "Login", with: user.username
+    fill_in "Login", with: customer.username
     fill_in "Password", with: "password"
     click_on "Sign in"
 
@@ -24,7 +24,7 @@ RSpec.describe "Devise::Sessions::UserNewSession", type: :system do
   end
 
   it "displays error if sign in fails" do
-    create(:user)
+    create(:customer)
     visit new_user_session_path
 
     click_on "Sign in"
@@ -33,12 +33,12 @@ RSpec.describe "Devise::Sessions::UserNewSession", type: :system do
   end
 
   it "redirects to the current page after sign in" do
-    user = create(:user)
+    customer = create(:customer)
     visit roadmaps_path
 
     click_on "Add Feedback"
 
-    fill_in "Login", with: user.username
+    fill_in "Login", with: customer.username
     fill_in "Password", with: "password"
     click_on "Sign in"
 
@@ -46,10 +46,10 @@ RSpec.describe "Devise::Sessions::UserNewSession", type: :system do
   end
 
   it "redirects to the home page after sign in without previous page" do
-    user = create(:user)
+    customer = create(:customer)
     visit new_user_session_path
 
-    fill_in "Login", with: user.username
+    fill_in "Login", with: customer.username
     fill_in "Password", with: "password"
     click_on "Sign in"
 
