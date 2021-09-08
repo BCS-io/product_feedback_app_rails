@@ -24,7 +24,7 @@
     <div class="px-6 md:px-8 py-4"> <!-- comments wrapper -->
 
       <div class="test-show-comments">
-        <%= render(CommentComponent.with_collection(@feedback.comments.where(parent_id: nil), max_nesting: 8)) %>
+        <%= render(CommentComponent.with_collection(@feedback.comments.includes([:user, :parent]).where(parent_id: nil), max_nesting: 8)) %>
       </div>
 
       <div class="hidden">
