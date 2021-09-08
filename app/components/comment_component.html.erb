@@ -1,5 +1,5 @@
-<div id="comment-1" class="relative">  <!-- my-5 mx-auto -->
-  <% if orphan? %>
+<div id="comment-<%= @comment.id %>" class="relative">  <!-- my-5 mx-auto -->
+  <% if orphan? && @comment.comments.any? %>
     <%= link_to "#comment-#{@comment.id}", class: "comment-border-link" do %>
       <span class="sr-only">Jump to comment-<%= @comment.id %></span>
     <% end %>

@@ -12,20 +12,32 @@ RSpec.describe CommentComponent, type: :component do
     expect(rendered_component).to have_text "LOL"
     expect(rendered_component).to have_text "Reply"
     expect(rendered_component).to have_selector "form.hidden", text: "Add Comment"
+    expect(rendered_component).to have_selector "#comment-#{comment.id}"
   end
 
   describe "linking to self" do
-    it "links orphaned comments to self" do
-      customer = create(:customer, :avatared)
+    it "links orphaned comments with child" do
+      customer = create(:customer, :avatared, username: "george")
       feedback = create(:feedback, user: customer)
-      comment = create(:comment, parent: nil, user: customer, commentable: feedback)
+      orphan_comment = create(:comment, content: "OMG", user: customer, commentable: feedback)
+      child_comment = create(:comment, content: "LOL", parent: orphan_comment, user: customer, commentable: feedback)
 
-      render_inline(CommentComponent.with_collection([comment]))
+      render_inline(CommentComponent.with_collection([orphan_comment]))
 
-      expect(rendered_component).to have_link nil, href: "#comment-#{comment.id}"
+      expect(rendered_component).to have_link nil, href: "#comment-#{orphan_comment.id}"
     end
 
-    it "does not link parented comments to self" do
+    it "does not link orphaned comments without children" do
+      customer = create(:customer, :avatared)
+      feedback = create(:feedback, user: customer)
+      orphan_comment = create(:comment, parent: nil, user: customer, commentable: feedback)
+
+      render_inline(CommentComponent.with_collection([orphan_comment]))
+
+      expect(rendered_component).not_to have_link nil, href: "#comment-#{orphan_comment.id}"
+    end
+
+    it "does not link parented comments" do
       customer = create(:customer, :avatared)
       feedback = create(:feedback, user: customer)
       parent_comment = create(:comment, parent: nil, user: customer, commentable: feedback)
