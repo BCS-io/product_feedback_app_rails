@@ -51,6 +51,8 @@ group :development, :test do
   # Brakeman analyzes our code for security vulnerabilities
   gem 'brakeman'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'bullet'
+
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # All runtime config comes from the UNIX environment but we
   # use dotenv to store that in files for development and testing

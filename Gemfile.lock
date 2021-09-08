@@ -89,6 +89,9 @@ GEM
       railties
     brakeman (5.0.4)
     builder (3.2.4)
+    bullet (6.1.5)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     bundler-audit (0.8.0)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
@@ -309,6 +312,7 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
+    uniform_notifier (1.14.2)
     view_component (2.38.0)
       activesupport (>= 5.0.0, < 8.0)
       method_source (~> 1.0)
@@ -345,6 +349,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   boring_generators
   brakeman
+  bullet
   bundler-audit
   byebug
   capybara (>= 3.26)
