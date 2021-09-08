@@ -4,7 +4,7 @@
       <span class="sr-only">Jump to comment-<%= @comment.id %></span>
     <% end %>
   <% end %>
-  <div data-controller="reply">
+  <div data-controller="toggle">
     <!-- heading starts -->
     <div class="flex"> <!-- comment-heading items-center h-12 (50px)   -->
       <%= image_tag(@comment.user.avatar, class: "inline-block h-10 w-10 rounded-full") %>
@@ -15,7 +15,7 @@
       </div>
 
       <div class="">
-        <%= link_to "Reply", "#", class: "text-xs text-indigo-200", data: { action: "click->reply#toggle" } %>
+        <%= link_to "Reply", "#", class: "text-xs text-indigo-200", data: { action: "click->toggle#toggle touch->toggle#toggle" } %>
       </div>
     </div>
     <!-- heading ends -->
@@ -30,7 +30,7 @@
       <%= render(NewCommentComponent.new(commentable: @comment.commentable,
                                          parent_id: comment_reply_id,
                                          klass: "hidden",
-                                         reply_target: "form")) %>
+                                         reply_target: "toggleable")) %>
     </div>
     <!-- Reply Form End -->
   </div>
