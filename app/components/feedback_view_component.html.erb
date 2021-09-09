@@ -3,9 +3,7 @@
     <h3 class="font-bold text-xs sm:text-xl <%= @text_limit ? "sm:whitespace-nowrap overflow-hidden overflow-ellipsis" : "test-no-text-limit" %>">
       <%= @feedback.title.capitalize %>
     </h3>
-    <div class="mt-2 text-xs sm:text-lg text-gray-300 <%= @text_limit ? "leading-5 h-10 sm:leading-6 sm:h-12 sm:whitespace-nowrap overflow-hidden overflow-ellipsis" : "test-no-text-limit" %>">
-      <%= @feedback.description%>
-    </div>
+    <div class="mt-2 text-xs sm:text-lg whitespace-pre-line text-gray-300 <%= @text_limit ? "leading-5 h-10 sm:leading-6 sm:h-12 sm:whitespace-nowrap overflow-hidden overflow-ellipsis" : "test-no-text-limit" %>"><%= @feedback.description%></div>
     <div class="mt-2">
       <span class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-semibold bg-gray-100 text-indigo-200">
         <%= Feedback.human_enum_name(:category, @feedback.category) %>
