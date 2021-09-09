@@ -1,13 +1,15 @@
 <div class="mt-4 flex flex-wrap sm:flex-nowrap justify-between mx-6 sm:mx-0 p-6 bg-white rounded-xl test-feedback-view-component">
   <%= link_to feedback_path(@feedback), class:"flex-grow w-full mb-4 sm:ml-10 overflow-hidden" do %>
-    <h3 class="font-bold <%= @text_limit ? "sm:whitespace-nowrap overflow-hidden overflow-ellipsis" : "test-no-text-limit" %>"><%= @feedback.title.capitalize %></h3>
-    <div class="mt-2 text-gray-300 <%= @text_limit ? "sm:whitespace-nowrap overflow-hidden overflow-ellipsis" : "test-no-text-limit" %> ">
+    <h3 class="font-bold text-xs sm:text-xl <%= @text_limit ? "sm:whitespace-nowrap overflow-hidden overflow-ellipsis" : "test-no-text-limit" %>">
+      <%= @feedback.title.capitalize %>
+    </h3>
+    <div class="mt-2 text-xs sm:text-lg text-gray-300 <%= @text_limit ? "leading-5 h-10 sm:leading-6 sm:h-12 sm:whitespace-nowrap overflow-hidden overflow-ellipsis" : "test-no-text-limit" %>">
       <%= @feedback.description%>
     </div>
     <div class="mt-2">
-    <span class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-semibold bg-gray-100 text-indigo-200">
-      <%= Feedback.human_enum_name(:category, @feedback.category) %>
-    </span>
+      <span class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-semibold bg-gray-100 text-indigo-200">
+        <%= Feedback.human_enum_name(:category, @feedback.category) %>
+      </span>
     </div>
   <% end %>
   <%= render partial: "votes/vote", locals: { current_user: @current_user, feedback: @feedback } %>

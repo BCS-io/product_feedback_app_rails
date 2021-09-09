@@ -22,7 +22,8 @@ RSpec.describe FeedbackViewComponent, type: :component do
 
       expect(rendered_component).to have_selector("h3.overflow-hidden.overflow-ellipsis",
                                                   text: "This title")
-      expect(rendered_component).to have_selector("div.overflow-hidden.overflow-ellipsis",
+      # leading-5 and h-10 means 2 lines of text. overflow-hidden to stop any additional lines being shown
+      expect(rendered_component).to have_selector("div.text-xs.leading-5.h-10.overflow-hidden.overflow-ellipsis",
                                                   text: "this description")
     end
 
