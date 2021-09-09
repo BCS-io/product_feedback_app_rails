@@ -5,7 +5,9 @@
     </div>
 
     <div class="mt-4">
-      <%= form.text_field :title, class: "w-full text-indigo-400 bg-gray-100 border-none focus:border-indigo-200" %>
+      <%= form.text_field :title,
+                          maxlength: Feedback::MAX_TITLE_LENGTH,
+                          class: "w-full text-indigo-400 bg-gray-100 border-none focus:border-indigo-200" %>
       <p class='text-red-200'><%= show_errors(@feedback, :title) %></p>
     </div>
   </div>
@@ -54,6 +56,7 @@
     </div>
     <div class="mt-4">
       <%= form.text_area :description,
+                          maxlength: Feedback::MAX_DESCRIPTION_LENGTH,
                          class: "w-full h-32 text-indigo-400 bg-gray-100 border-none" %>
       <p class="text-red-200"><%= show_errors(@feedback, :description) %></p>
     </div>
