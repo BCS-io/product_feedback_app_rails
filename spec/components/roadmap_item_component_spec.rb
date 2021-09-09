@@ -9,9 +9,9 @@ RSpec.describe RoadmapItemComponent, type: :component do
                       user: create(:user))
     render_inline(RoadmapItemComponent.new(feedback: feedback, current_user: create(:user)))
 
-    expect(rendered_component).to have_text("Another")
+    expect(rendered_component).to have_css(".text-xs", text: "Another")
     # two lines of text only
-    expect(rendered_component).to have_css(".leading-4.h-8", text: "all you need to know")
+    expect(rendered_component).to have_css(".text-xs.leading-5.h-10", text: "all you need to know")
     expect(rendered_component).to have_text("Enhancement")
   end
 end

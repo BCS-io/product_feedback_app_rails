@@ -6,8 +6,12 @@
     </div>
 
     <div class="flex flex-col overflow-hidden">
-      <h3 class="mt-4 text-xs overflow-hidden overflow-ellipsis whitespace-nowrap font-bold text-indigo-400"><%= @feedback.title.capitalize %></h3>
-      <p class="mt-2 overflow-hidden overflow-ellipsis leading-4 h-8 text-gray-300"><%= @feedback.description %></p>
+      <h3 class="mt-4 text-xs lg:text-xl overflow-hidden overflow-ellipsis whitespace-nowrap font-bold text-indigo-400">
+        <%= @feedback.title.capitalize %>
+      </h3>
+      <p class="mt-2 text-xs leading-5 h-10 lg:text-lg lg:leading-6 lg:h-12 overflow-hidden overflow-ellipsis text-gray-300">
+        <%= @feedback.description %>
+      </p>
       <div class="mt-6">
         <span class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-semibold bg-gray-100 text-indigo-200">
           <%= Feedback.human_enum_name(:category, @feedback.category) %>
