@@ -10,6 +10,10 @@ module.exports = {
       fontFamily: {
         sans: ['Jost', defaultTheme.fontFamily.sans],
       },
+      gridTemplateColumns: {
+        '250px-1fr': '270px 1fr',
+
+      }
     },
     screens: {
       sm: '640px',
