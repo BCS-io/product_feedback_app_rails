@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/fastruby/dotenv_validator.git
+  revision: 357f385818830ceee6dbdb9df0150aab5e5d9c00
+  branch: main
+  specs:
+    dotenv_validator (1.0.0)
+      dotenv (>= 2.7, < 3.0)
+      fast_blank (~> 1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -127,6 +136,7 @@ GEM
       railties (>= 5.0.0)
     faker (2.18.0)
       i18n (>= 1.6, < 2)
+    fast_blank (1.0.1)
     ffi (1.15.3)
     globalid (0.5.2)
       activesupport (>= 5.0)
@@ -355,6 +365,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   dotenv-rails
+  dotenv_validator!
   factory_bot_rails
   faker
   jbuilder (~> 2.7)

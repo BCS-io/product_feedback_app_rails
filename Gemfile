@@ -57,6 +57,8 @@ group :development, :test do
   # All runtime config comes from the UNIX environment but we
   # use dotenv to store that in files for development and testing
   gem 'dotenv-rails'
+  # validates dotenv files
+  gem "dotenv_validator", github: "fastruby/dotenv_validator", branch: :main
   # factory replacement for fixtures
   gem 'factory_bot_rails'
   # generating random test data
