@@ -3,13 +3,22 @@
 
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
-import { Alert, Slideover, Tabs, Toggle } from "tailwindcss-stimulus-components"
 
-window.Stimulus = Application.start()
-const context = require.context("controllers", true, /_controller\.(js|ts)$/)
-Stimulus.load(definitionsFromContext(context))
+const application = Application.start()
+const context = require.context("controllers", true, /_controller\.js$/)
+application.load(definitionsFromContext(context))
 
-window.Stimulus.register("alert", Alert)
-window.Stimulus.register("slideover", Slideover)
-window.Stimulus.register("tabs", Tabs)
-window.Stimulus.register("toggle", Toggle)
+// Import and register all TailwindCSS Components
+import {
+  Alert,
+  Dropdown,
+  Tabs,
+  Toggle,
+  Slideover,
+} from "tailwindcss-stimulus-components"
+
+application.register("alert", Alert)
+application.register("dropdown", Dropdown)
+application.register("tabs", Tabs)
+application.register("toggle", Toggle)
+application.register("slideover", Slideover)
