@@ -1,4 +1,10 @@
+
+[README](../README.md)
 # Walkthrough
+
+#### Expected reader Knowledge
+  - None
+
 
 The application is quite simple. It displays feedbacks about another application to the users. The Homepage is the feedback records when they have a status of suggestion, while the Roadmap shows the same feedback records as they move from planning through to going live.
 
