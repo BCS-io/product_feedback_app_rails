@@ -1,3 +1,4 @@
+Comment.delete_all
 Vote.delete_all
 Feedback.delete_all
 User.delete_all
