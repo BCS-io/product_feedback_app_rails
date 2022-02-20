@@ -77,3 +77,9 @@ yarn-debug.log*
 # Ignore vscode configuration
 #
 .vscode/*
+
+#
+# Ignore Rubymine
+#
+
+.idea/*
