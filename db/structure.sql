@@ -195,8 +195,8 @@ CREATE TABLE public.feedbacks (
     user_id bigint NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
-    category public.feedback_category,
-    status public.feedback_status,
+    category public.feedback_category NOT NULL,
+    status public.feedback_status NOT NULL,
     upvotes_count integer DEFAULT 0 NOT NULL,
     comments_count integer DEFAULT 0
 );
@@ -591,6 +591,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210824181937'),
 ('20210824190000'),
 ('20210825104911'),
-('20210827171246');
+('20210827171246'),
+('20220220150444');
 
 
