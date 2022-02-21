@@ -34,7 +34,7 @@ gem 'lograge'
 
 gem 'devise'
 
-gem "view_component", require: "view_component/engine"
+gem "view_component"
 
 gem 'pundit'
 
