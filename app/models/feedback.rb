@@ -12,3 +12,4 @@ class Feedback < ApplicationRecord
   validates :title, length: { maximum: MAX_TITLE_LENGTH }
   validates :description, length: { maximum: MAX_DESCRIPTION_LENGTH }
 end
+
