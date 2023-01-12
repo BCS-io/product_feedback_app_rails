@@ -1,3 +1,5 @@
+require "factory_bot_rails"
+
 Comment.delete_all
 Vote.delete_all
 Feedback.delete_all

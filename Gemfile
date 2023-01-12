@@ -42,6 +42,12 @@ gem "stimulus-rails", "~> 0.3.9"
 
 gem "aws-sdk-s3", require: false
 
+# factory replacement for fixtures
+gem 'factory_bot_rails'
+
+# generating random test data
+gem 'faker'
+
 group :development, :test do
   # Way of generating boilerplate code for common gems
   gem 'boring_generators'
@@ -59,10 +65,6 @@ group :development, :test do
   gem 'dotenv-rails'
   # validates dotenv files
   gem "dotenv_validator", github: "fastruby/dotenv_validator", branch: :main
-  # factory replacement for fixtures
-  gem 'factory_bot_rails'
-  # generating random test data
-  gem 'faker'
   # test framework
   gem 'rspec-rails', '~> 5.0.0'
 end
